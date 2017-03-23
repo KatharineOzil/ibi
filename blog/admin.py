@@ -8,7 +8,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 	list_display = ('username', 'email', 'status')
 
 class ArticleAdmin(admin.ModelAdmin):
-	list_display = ('title', 'category', 'created_time')
+	list_display = ('title', 'category', 'created_date')
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
