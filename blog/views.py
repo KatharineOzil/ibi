@@ -348,7 +348,7 @@ def forget_password(request):
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
                 else:
-                    user.status = True
+                    user.status = '需重置密码'
                     user.save()
                     message = {'message': '已通知管理员重置密码'}
                     data = json.dumps(message,separators=(',',':'))                
