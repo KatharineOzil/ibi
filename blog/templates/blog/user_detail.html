@@ -1,0 +1,69 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% if form.subject.errors %}
+    <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-pencil"></i>个人资料</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g am-u-sm-centered" id='userprofile'>
+      {% for user in user %}
+        <form class="am-form am-u-lg-6 am-u-md-8">
+        
+        <div class="am-u-lg-6">
+        <p><img src="{{ STATIC_URL }}{{ photo_url }}" width="200" height="250"/><br/></p>
+        </div>
+        姓名：<strong>{{user.username}}</strong><br/><br/>
+        身份：<strong>{{user.category}}</strong><br/><br/>
+        个人简介：
+        <strong><p>{{user.information}}</p></strong><br/>
+        </form>
+        <form class="am-form am-u-lg-6 am-u-md-9">
+        研究项目：
+        <strong><p>{{user.project}}</p></strong>
+        专利：
+        <strong><p>{{user.patent}}</p></strong>
+        文章：
+        <strong><p>{{user.article}}</p></strong>
+        著作：
+        <strong><p>{{user.works}}</p></strong>
+        </form>
+      {% endfor %}
+      <button id="change" type="button" class="am-btn am-btn-primary am-btn-sm am-center"/>修改
+      </button>
+    </div>
+    <br>
+<div>
+
+    <div id='userprofile_change' style="display:none" class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+      <form action="{% url 'user_detail' %}" method="post" enctype="multipart/form-data" class="am-form">
+        {% csrf_token %}
+        {{ form }}
+        <div class="am-cf">
+        <br/>
+      	<input type="submit" value="完成" class="am-btn am-btn-primary am-btn-sm am-fl"/>
+        </div>
+      </form>
+    </div>
+
+
+<script type="text/javascript">
+	$("#change").click(function() {
+		$("#userprofile").hide();
+		$("#userprofile_change").show();
+	});
+
+</script>
+
+{% endblock %}
+

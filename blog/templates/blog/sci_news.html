@@ -1,0 +1,88 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br/>	<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-archive am-icon-xs"></i> 最新动态</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g">
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+		<div class="am-panel am-panel-default">
+  			<div class="am-panel-hd">
+    			<h3 class="am-panel-title">获得专利</h3>
+  			</div>
+ 			{% for user_result in user_result %}
+  			<table class="am-table">
+    			<thead>
+        		<tr>
+            		<th>专利名称</th>
+            		<th>作者</th>
+        		</tr>
+    			</thead>
+    			<tbody>
+        		<tr>
+                {% if user_result.patent %}
+            		<td>{{user_result.patent}}</td>
+            		<td>{{user_result.username}}</td>
+                
+                {% endif %}
+        		</tr>
+     			</tbody>
+  			</table>
+        	{% endfor %}
+   		</div>
+<br/>
+        <div class="am-panel am-panel-default">
+        	<div class="am-panel-hd">
+    			<h3 class="am-panel-title">文章发表</h3>
+  			</div>
+			{% for user_result in user_result %}
+			<table class="am-table">
+    			<thead>
+        		<tr>
+            		<th>文章题目</th>
+            		<th>作者</th>
+        		</tr>
+    			</thead>
+    			<tbody>
+        		<tr>
+                {% if user_result.article %}
+            		<td>{{user_result.article}}</td>
+            		<td>{{user_result.username}}</td>
+                {% endif %}
+        		</tr>
+     			</tbody>
+  			</table>
+        	{% endfor %}
+  		</div>
+<br/>
+        <div class="am-panel am-panel-default">
+  			<div class="am-panel-hd">
+    			<h3 class="am-panel-title">著作发表</h3>
+  			</div>
+			{% for user_result in user_result %}
+  			<table class="am-table">
+    			<thead>
+        		<tr>
+            		<th>著作题目</th>
+		            <th>作者</th>
+        		</tr>
+    			</thead>
+    			<tbody>
+		        <tr>
+              {% if user_result.works %}
+        	    	<td>{{user_result.works}}</td>
+            		<td>{{user_result.username}}</td>
+              {% endif %}
+        		</tr>
+     			</tbody>
+  			</table>
+        	{% endfor %}
+        </div>
+	</div>
+</div>
+
+{% endblock %}

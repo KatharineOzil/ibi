@@ -1,0 +1,155 @@
+{% load staticfiles %}
+
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IBI</title>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="static/assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="static/assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="static/assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="static/assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="static/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="static/assets/css/app.css">
+  <!--
+    <script src="{% static "js/jquery-3.1.1.min.js" %}"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
+  </head>
+
+  <body>
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <script src="static/assets/js/jquery.min.js"></script>
+  <script src="static/assets/js/jquery.form.js"></script>
+
+  <!--<![endif]-->
+  <!--[if lte IE 8 ]>
+  <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+  <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+  <![endif]-->
+<script src="static/assets/js/amazeui.min.js"></script>
+    
+    <header class="am-topbar am-topbar-fixed-top">
+      <div class="am-container">
+        <h1 class="am-topbar-brand">
+        <a href="#">IBI</a></h1>
+
+          <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+
+          <!--<div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 780px; ">
+              <li class="am-active"><a href="/">首页</a></li>
+              <li><a href="sci_news">科研动态</a></li>
+              <li><a href="direction">科研方向</a></li>
+              <li><a href="team">科研队伍</a></li>
+              <li><a href="tools">研究工具</a></li>-->
+          {% if username %}
+          <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 780px; ">
+              <li class="am-active"><a href="/">首页</a></li>
+              <li><a href="sci_news">科研动态</a></li>
+              <li><a href="direction">科研方向</a></li>
+              <li><a href="team">科研队伍</a></li>
+              <li><a href="tools">研究工具</a></li>
+                <li class="am-dropdown " data-am-dropdown>
+                  <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                  个人管理 <span class="am-icon-caret-down"></span>
+                  </a>
+                  <ul class="am-dropdown-content">
+                    <li class="am-dropdown-header">个人管理</li>
+                    <li><a href="user_detail"><span class="am-icon-pencil-square"></span> 修改个人资料</a></li>
+                    <li><a href="change_password"><span class="am-icon-pencil-square-o"></span> 修改密码</a></li>
+                    <li><a href="logout"><span class="am-icon-times"></span> 注销</a></li>
+                  </ul>
+                </li>
+            </ul>
+             <div class="am-topbar-right">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 欢迎您，{{username}}</button>
+            </div>
+          {% else %}
+          <div class="am-collapse am-topbar-collapse" id="collapse-head">
+            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 870px; ">
+              <li class="am-active"><a href="/">首页</a></li>
+              <li><a href="sci_news">科研动态</a></li>
+              <li><a href="direction">科研方向</a></li>
+              <li><a href="team">科研队伍</a></li>
+              <li><a href="tools">研究工具</a></li>
+                <li class="am-dropdown" style="float: right" data-am-dropdown>
+                  <a class="am-dropdown-toggle " data-am-dropdown-toggle href="javascript:;">
+                  用户功能 <span class="am-icon-caret-down"></span>
+                  </a>
+                  <ul class="am-dropdown-content">
+                    <li class="am-dropdown-header">用户功能</li>
+                    <li><a href="login"><span class="am-icon-user"></span> 登录</a></li>
+                    <li><a href="register"><span class="am-icon-pencil"></span> 注册</a></li>
+                    <li><a href="forget_password"><span class="am-icon-exclamation"></span>  忘记密码</a></li>
+                    <li><a href="admin"><span class="am-icon-star"></span> 管理员登录</a></li>
+                  </ul>
+                </li>
+            </ul>
+
+          <!--</ul>
+            <div class="am-topbar-right">
+              <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="window.location='admin'"><span class="am-icon-user"></span> 管理员登录</button>
+            </div>
+            <div class="am-topbar-right">
+              <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="window.location='register'"><span class="am-icon-pencil"></span> 注册
+            </div>
+
+            <div class="am-topbar-right">
+              <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="window.location='login'">
+                <span class="am-icon-user"></span> 登录
+              </button>
+            </div>
+
+            <a href='forget_password'>忘记密码</a>放在登录界面-->
+          {% endif %}
+        </div>
+      </div>
+    </header>
+    
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+  <p>Copyright reserved by <a href="http://ibi.cqupt.edu.cn/department/index.php" target=_blank>Department of Bioinformatics</a>, <a href="http://www.cqupt.edu.cn/swxy/" target="_blant">College of Bioinformation</a>, <a href="http://www.cqupt.edu.cn" target="_blank">Chongqing University of Post and Telecommunication</a><br>
+  Address: Room 203-211, College of Mathematics and Physiology, CQUPT<br>
+  Last Update: 2017-3-21 
+</footer>
+  
+</td></tr>
+</table>
+</div>
+
+</body>

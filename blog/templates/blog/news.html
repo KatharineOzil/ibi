@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-newspaper-o am-icon-xs"></i> 最新动态</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g">
+<div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
+	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+	<thead>
+        <tr>
+            <th>最近动态</th>
+            <th>创建时间</th>
+        </tr>
+    </thead>
+    <tbody>
+	  {% if news %}
+		{% for news in news %}
+        <tr>
+            <td>{{news.text}}</td>
+            <td>{{news.created_date}}</td>
+        </tr>
+      	{% endfor %}
+      {% else %}
+
+        <tr>
+            <td>暂无数据</td>
+            <td></td>
+        </tr>
+
+      {% endif %}
+     </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

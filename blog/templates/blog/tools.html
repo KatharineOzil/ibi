@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br/>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-cogs am-icon-xs"></i> 研究工具</h1>
+  </div>
+  <hr />
+</div>
+ {% if tools %}
+      {% for tools in tools %}
+   <div class="am-g">
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{{tools.title}}</h3>
+        </div>
+  <div class="am-panel-bd">
+    <p>{{tools.text}}<br/>
+    <a href ="{{ STATIC_URL }}{{ attachment }}" download>附件下载</a></p>
+  </div>
+  </div>
+    {% endfor %}
+    {% else %}
+    <div class="am-g">
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">
+        暂无数据</h3>
+        <br>
+        </div>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}

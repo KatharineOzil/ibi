@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br/>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-map-signs am-icon-xs"></i> 研究方向</h1>
+  </div>
+  <hr />
+</div>
+<div class="am-g">
+<div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+        {% for direction in direction %}
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> 负责人：{{direction.username}}</h3>
+            </div>
+
+<table class="am-table am-u-md-8 am-u-sm-centered">
+    <thead>
+        <tr>
+            <td class="am-u-md-8"><i class="am-icon-map-pin am-icon-xs"></i> 研究方向：{{direction.project}}</td>
+        </tr>
+    </thead>
+</table>
+    {% endfor %}   
+
+</div>
+</div>
+</div>
+{% endblock %}

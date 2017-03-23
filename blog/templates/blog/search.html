@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="am-icon-search am-icon-xs"></i> 搜索结果</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g">
+<div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
+	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+	<thead>
+        <tr>
+            <th>标题</th>
+            <th>具体内容</th>
+        </tr>
+    </thead>
+    <tbody>
+	  {% if result %}
+		{% for search in result %}
+        <tr>
+            <td>{{search.title}}</td>
+            <td>{{search.text}}</td>
+        </tr>
+      	{% endfor %}
+      {% else %}
+
+        <tr>
+            <td>暂无数据</td>
+        </tr>
+
+      {% endif %}
+     </tbody>
+    </table>
+</div>
+</div>
+        
+	
+
+{% endblock %}
