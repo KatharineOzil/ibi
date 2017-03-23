@@ -33,7 +33,7 @@ class UserProfile(models.Model):
     article = models.TextField(blank=True)
     works = models.TextField(blank=True)
     is_staff = models.BooleanField(default=False)
-    status = models.CharField(default=0, max_length=20)
+    status = models.CharField(max_length=10, blank=True)
 
     def save(self, *args, **kwargs):
         try:
