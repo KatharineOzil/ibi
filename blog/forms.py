@@ -91,6 +91,7 @@ class UserDetailForm(forms.ModelForm):
         ('硕士', '硕士'),
         ('博士', '博士'),
         ('博士后', '博士后'),
+        ('在读博士', '在读博士'),
         )
 
     category = forms.CharField(max_length=200, widget=forms.Select(choices=category_choice), required=False, label=mark_safe('<br/><i class="am-icon-user"></i>类别'))

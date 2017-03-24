@@ -2,8 +2,13 @@
 
 from django.conf.urls import url
 from . import views
+from material.frontend import urls as frontend_urls
+from django.conf.urls import include
+from django.contrib import admin
 
 urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'', include(frontend_urls)),
     url(r'^$', views.index, name='index'),
     url(r'^index$', views.index, name='index'),
     url(r'^user_detail$', views.user_detail, name='user_detail'),    
