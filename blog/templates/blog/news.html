@@ -9,33 +9,43 @@
   <hr />
 </div>
 
+{% if news %}
+{% for news in news %}
+<div class="am-panel-group " id="accordion">
+  <div class="am-panel am-panel-default am-u-lg-9 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel-hd">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#news-1'}">
+        {{news.title}}（地点：{{news.place}}、时间：{{news.lec_time}}）
+      </h4>
+    </div>
+    <div id="news-1" class="am-panel-collapse am-collapse am-in">
+      <div class="am-panel-bd">
+        主讲人：{{news.name}}<br/>
+        内容简介：{{news.text}}<br/>
+        {% if news.host %}
+        主持人：{{news.host}}<br/>
+        {% endif %}
+        {% if news.organizers %}
+        主办单位：{{news.organizers}}<br/>
+        {% endif %}
+        {% if news.presenter_detail%}
+        主讲人简介：{{news.presenter_detail}}<br/>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
 <div class="am-g">
 <div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
-	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
-	<thead>
-        <tr>
-            <th>最近动态</th>
-            <th>创建时间</th>
-        </tr>
-    </thead>
-    <tbody>
-	  {% if news %}
-		{% for news in news %}
-        <tr>
-            <td>{{news.text}}</td>
-            <td>{{news.created_date}}</td>
-        </tr>
-      	{% endfor %}
-      {% else %}
-
-        <tr>
-            <td>暂无数据</td>
-            <td></td>
-        </tr>
-
-      {% endif %}
-     </tbody>
-    </table>
+  <table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+  <thead>
+    <tr>暂无数据</tr>
+  </thead>
+  </table>
 </div>
 </div>
+{% endif %}
+
 {% endblock %}

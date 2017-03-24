@@ -28,9 +28,13 @@
           </h3>
 
           <p class="detail-p">
+      {% if news %}
       {% for news in news %}
-        <p>{{news.title}}</p>
+        <p><strong>【最新讲座】{{news.title}}（{{news.lec_time}}、{{news.place}}）</strong></p>
       {% endfor %}
+      {% else %}
+      <p>无</p>
+      {% endif %}
           </p>
         </div>
         <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb" id='announcement'>
@@ -41,9 +45,13 @@
           </h3>
 
           <p class="detail-p">
+          {% if announcement %}
            {% for announcement in announcement %}
              <p>{{announcement.title}}</p>
             {% endfor %}
+          {% else %}
+          <p>无</p>
+          {% endif %}
           </p>
         </div>
       

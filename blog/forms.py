@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 from django import forms
 from .models import UserProfile
-from .models import Article
 from django.utils.safestring import mark_safe
 
 class UserRegisterForm(forms.ModelForm):
@@ -72,15 +71,31 @@ class UserChangePasswordForm(forms.ModelForm):
 class UserDetailForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['category', 'photo', 'information', 'project', 'patent', 'article', 'works']
+        fields = ['category', 'job_title',  'education', 'photo', 'information', 'project', 'patent', 'article', 'works']
 
-    category_choice= (
+    category_choice = (
         ('博士生导师', '博士生导师'),
         ('硕士生导师', '硕士生导师'),
         ('研究生', '研究生'),
         )
 
-    category = forms.CharField(max_length=200, widget=forms.Select(choices=category_choice), required=False, label=mark_safe('<br/><i class="am-icon-user"></i>身份'))
+    title_choice = (
+        ('讲师', '讲师'),
+        ('副教授', '副教授'),
+        ('教授', '教授'),
+        ('特聘教授', '特聘教授'),
+        ('兼职教授', '兼职教授'),
+        )
+
+    education_choice = (
+        ('硕士', '硕士'),
+        ('博士', '博士'),
+        ('博士后', '博士后'),
+        )
+
+    category = forms.CharField(max_length=200, widget=forms.Select(choices=category_choice), required=False, label=mark_safe('<br/><i class="am-icon-user"></i>类别'))
+    job_title = forms.CharField(max_length=200, widget=forms.Select(choices=title_choice), required=False, label=mark_safe('<br/><i class="am-icon-user"></i>职称'))
+    education = forms.CharField(max_length=200, widget=forms.Select(choices=education_choice), required=False, label=mark_safe('<br/><i class="am-icon-user"></i>学历'))
     photo = forms.ImageField(required=False, label=mark_safe('<br/><i class="am-icon-cloud-upload"></i>个人照片'))
     information = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>个人介绍'))
     project = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>研究项目'))

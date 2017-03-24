@@ -1,9 +1,11 @@
 # -*- coding:utf-8 -*-
 
 from django.shortcuts import render, HttpResponseRedirect, render_to_response
-from .models import Article
 from .models import UserProfile
-from .models import ArticleCategory
+from .models import ResearchRoom
+from .models import News
+from .models import Announcement
+from .models import Tools
 from .forms import UserRegisterForm, UserLoginForm, UserChangePasswordForm, UserDetailForm, SearchForm, ForgetPasswordForm
 from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponse
@@ -22,14 +24,9 @@ sys.setdefaultencoding('utf-8')
 
 def index(request):
     return_result = {}
-    try:
-        obj_news = ArticleCategory.objects.get(category='news')
-        news = obj_news.article_set.all().order_by('-id')[:1]
-        obj_ann = ArticleCategory.objects.get(category='announcement')
-        announcement = obj_ann.article_set.all().order_by('-id')[:1]
-        return_result.update({'news': news, 'announcement': announcement})
-    except ArticleCategory.DoesNotExist:
-        return_result.update({'news': u'无', 'announcement': u'无'})
+    news = News.objects.all().order_by('-id')[:1]
+    announcement = Announcement.objects.all().order_by('-id')[:1]
+    return_result.update({'news': news, 'announcement': announcement})
 
     if request.session.get('username', None) and request.session.get('email', None):
         username = request.session['username']
@@ -37,6 +34,7 @@ def index(request):
         return_result.update({'username': username, 'email': email})
     else:
         pass
+
     f = SearchForm()
     return_result.update({'form': f})
     return render(request, 'blog/index.html', return_result)
@@ -50,14 +48,9 @@ def news(request):
     else:
         pass
 
-    try:
-        obj_news = ArticleCategory.objects.get(category='news')
-        news = obj_news.article_set.all().order_by('-id')
-        return_result.update({'news': news})
-        return render(request, 'blog/news.html', return_result)
-    except ArticleCategory.DoesNotExist:
-        return render(request, 'blog/news.html', return_result)
-
+    news = News.objects.all().order_by('-id')
+    return_result.update({'news': news})
+    return render(request, 'blog/news.html', return_result)
 
 def announcement(request):
     return_result = {}
@@ -68,13 +61,9 @@ def announcement(request):
     else:
         pass
 
-    try:
-        obj_ann = ArticleCategory.objects.get(category='announcement')
-        announcement = obj_ann.article_set.all().order_by('-id')
-        return_result.update({'announcement': announcement})
-        return render(request, 'blog/announcement.html', return_result)
-    except ArticleCategory.DoesNotExist:
-        return render(request, 'blog/announcement.html', return_result)
+    announcement = Announcement.objects.all().order_by('-id')
+    return_result.update({'announcement': announcement})
+    return render(request, 'blog/announcement.html', return_result)
 
 def sci_news(request):
     return_result = {}
@@ -98,19 +87,9 @@ def direction(request):
     else:
         pass
 
-    direction = UserProfile.objects.all().values('project', 'username')
+    direction = ResearchRoom.objects.all()
     return_result.update({'direction': direction})
     return render(request, 'blog/direction.html', return_result)
-
-    '''
-    try:
-        obj_pro = ArticleCategory.objects.get(category='direction')
-        project = obj_pro.article_set.all()
-        return_result.update({'direction': direction})
-        return render(request, 'blog/direction.html', return_result)
-    except ArticleCategory.DoesNotExist:
-        return render(request, 'blog/direction.html', return_result)
-    '''
 
 def team(request):
     return_result = {}
@@ -139,8 +118,7 @@ def tools(request):
         pass
 
     try:
-        obj_tools = ArticleCategory.objects.get(category='tools')
-        tools = obj_tools.article_set.all()
+        tools = Tools.objects.get()
         return_result.update({'tools': tools})
         for a in tools:
             if a.attachment:
@@ -150,7 +128,7 @@ def tools(request):
             else:
                 pass
         return render(request, 'blog/tools.html', return_result)
-    except ArticleCategory.DoesNotExist:
+    except Tools.DoesNotExist:
         return render(request, 'blog/tools.html', return_result)
 
 def search(request):
@@ -169,16 +147,19 @@ def search(request):
         f = SearchForm(request.POST)    
         if f.is_valid():
             search = f.cleaned_data['search']
-            result_article = Article.objects.filter( Q(title__contains=search) | Q(text__contains=search))
+            result_ann = Announcement.objects.filter( Q(title__contains=search) )
+            result_news = News.objects.filter( Q(title__contains=search) | Q(text__contains=search) | Q(name__contains=search) | Q(place__contains=search))
+            result_tools = Tools.objects.filter( Q(title__contains=search) | Q(text__contains=search))
+            result_room = ResearchRoom.objects.filter( Q(name__contains=search) | Q(direction__contains=search))
             result_user = UserProfile.objects.filter( Q(username__contains=search) | Q(information__contains=search) | Q(patent__contains=search) | Q(project__contains=search) | Q(works__contains=search) | Q(article__contains=search))
-            result = chain(result_user, result_article)
+            result = chain(result_user, result_ann, result_room, result_tools, result_news)
             return_result.update({'form': f, 'result': result})
             return render(request, 'blog/search.html',return_result)
         else:
             return_result.update({'form': f})
             return render(request, 'blog/index.html', return_result)
 
-def user_detail(request):#看到个人现有信息，然后进行添加
+def user_detail(request):
     return_result = {}
     if request.session.get('username', None) and request.session.get('email', None):
         username = request.session['username']
@@ -193,7 +174,7 @@ def user_detail(request):#看到个人现有信息，然后进行添加
         return_result.update({'user': user_detail})
         photo_url = str(user.photo)
         photo_url = photo_url.replace('blog/', '', 1)
-        f = UserDetailForm({'category': user.category, 'photo': user.photo, 'information': user.information, 'project': user.project, 'patent': user.patent, 'article': user.article, 'works': user.works})
+        f = UserDetailForm({'category': user.category, 'job_title': user.job_title, 'education': user.education, 'photo': user.photo, 'information': user.information, 'project': user.project, 'patent': user.patent, 'article': user.article, 'works': user.works})
         return_result.update({'form': f})
         return_result.update({'photo_url' : photo_url})
         return render(request, 'blog/user_detail.html', return_result)
@@ -201,12 +182,14 @@ def user_detail(request):#看到个人现有信息，然后进行添加
         f = UserDetailForm(request.POST, request.FILES)
         if f.is_valid():
             category = f.cleaned_data['category']
+            job_title = f.cleaned_data['job_title']
+            education = f.cleaned_data['education']
             information = f.cleaned_data['information']
             project = f.cleaned_data['project']
             patent = f.cleaned_data['patent']
             works = f.cleaned_data['works']
             article = f.cleaned_data['article']
-            user_update = UserProfile.objects.filter(email=email).update(category=category, information=information, project=project, patent=patent, works=works, article=article)
+            user_update = UserProfile.objects.filter(email=email).update(category=category, job_title=job_title, education=education, information=information, project=project, patent=patent, works=works, article=article)
 
             if request.FILES:
                 photo = request.FILES['photo']

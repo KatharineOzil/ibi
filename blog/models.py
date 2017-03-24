@@ -10,30 +10,90 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 # Create your models here.
 
-class Article(models.Model):
-    #author = models.ForeignKey('auth.user')
-    title = models.CharField(max_length=200)
-    text = models.TextField() 
-    category = models.ForeignKey('ArticleCategory')
-    created_date = models.DateTimeField(default=timezone.now)
-    attachment = models.FileField(upload_to='blog/static/attachment/', blank=True)
+class Announcement(models.Model):
+    class Meta:
+        verbose_name = '公告通知'
+        verbose_name_plural = '公告通知'
+
+    title = models.CharField(verbose_name="标题" ,max_length=200)
+    created_date = models.DateTimeField(default=timezone.now, verbose_name="创建时间")
+    #attachment = models.FileField(upload_to='blog/static/attachment/announcement/', blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Tools(models.Model):
+    class Meta:
+        verbose_name = '研究工具'
+        verbose_name_plural = '研究工具'
+
+    title = models.CharField(max_length=200, verbose_name="标题")
+    text = models.TextField(verbose_name="详细内容") 
+    created_date = models.DateTimeField(default=timezone.now, verbose_name="创建时间")
+    attachment = models.FileField(upload_to='blog/static/attachment/tools/', blank=True, verbose_name="相关附件")
+
+    def __str__(self):
+        return self.title
+
+class News(models.Model):
+    class Meta:
+        verbose_name = '动态'
+        verbose_name_plural = '动态'
+
+    title = models.CharField(max_length=200, verbose_name="标题")
+    text = models.TextField(verbose_name="详细内容")
+    name = models.CharField(max_length=200, verbose_name="主讲人")
+    host = models.CharField(max_length=200, verbose_name="主持人", blank=True)
+    organizers = models.CharField(max_length=200, verbose_name="主办单位", blank=True)
+    place = models.CharField(max_length=200, verbose_name="地点")
+    lec_time = models.DateTimeField(default=timezone.now, verbose_name="时间")
+    presenter_detail = models.TextField(verbose_name="主讲人简介", blank=True)
+    created_date = models.DateTimeField(default=timezone.now, verbose_name="创建时间")
+    attachment = models.FileField(upload_to='blog/static/attachment/news/', blank=True, verbose_name="相关附件")
 
     def __str__(self):
         return self.title
 
 class UserProfile(models.Model):
-    username = models.CharField(max_length=30)
-    password = models.CharField(max_length=200)
-    email = models.EmailField(max_length=50)
-    category = models.CharField(max_length=30, blank=True, default="--")
-    photo = models.ImageField(upload_to='blog/static/photo/', blank=True, default="blog/static/photo/default.png")
-    information = models.TextField(blank=True)
-    project = models.TextField(blank=True)
-    patent = models.TextField(blank=True)
-    article = models.TextField(blank=True)
-    works = models.TextField(blank=True)
-    is_staff = models.BooleanField(default=False)
-    status = models.CharField(max_length=10, blank=True)
+    class Meta:
+        verbose_name = '用户'
+        verbose_name_plural = '用户'
+
+    category_choice = (
+        ('博士生导师', '博士生导师'),
+        ('硕士生导师', '硕士生导师'),
+        ('研究生', '研究生'),
+        )
+
+    title_choice = (
+        ('讲师', '讲师'),
+        ('副教授', '副教授'),
+        ('教授', '教授'),
+        ('特聘教授', '特聘教授'),
+        ('兼职教授', '兼职教授'),
+        )
+
+    education_choice = (
+        ('硕士', '硕士'),
+        ('博士', '博士'),
+        ('博士后', '博士后'),
+        )
+
+
+    username = models.CharField(max_length=30, verbose_name="姓名")
+    password = models.CharField(max_length=200, verbose_name="密码")
+    email = models.EmailField(max_length=50, verbose_name="邮箱")
+    category = models.CharField(max_length=30, blank=True, default="--", choices=category_choice, verbose_name="类别")
+    job_title = models.CharField(max_length=30, blank=True, default="--", choices=title_choice, verbose_name="职称")
+    education = models.CharField(max_length=30, blank=True, default="--", choices=education_choice, verbose_name="学历")
+    photo = models.ImageField(upload_to='blog/static/photo/', blank=True, default="blog/static/photo/default.png", verbose_name="照片")
+    information = models.TextField(blank=True, verbose_name="个人简介")
+    project = models.TextField(blank=True, verbose_name="研究项目")
+    patent = models.TextField(blank=True, verbose_name="获得专利情况")
+    article = models.TextField(blank=True, verbose_name="文章发表情况")
+    works = models.TextField(blank=True, verbose_name="著作发表情况")
+    is_staff = models.BooleanField(default=False, verbose_name="是否允许注册")
+    status = models.CharField(max_length=10, blank=True, default='否', verbose_name="是否需要重置密码")
 
     def save(self, *args, **kwargs):
         try:
@@ -49,8 +109,14 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.username
 
-class ArticleCategory(models.Model):
-    category = models.CharField(max_length=30)
+class ResearchRoom(models.Model):
+    class Meta:
+        verbose_name = '研究室'
+        verbose_name_plural = '研究室'
+
+    name = models.CharField(max_length=100, verbose_name="研究室名称")
+    direction = models.TextField(blank=True, verbose_name="研究方向")
+    user = models.ManyToManyField(UserProfile, verbose_name="研究室人员")
 
     def __str__(self):
-        return self.category
+        return self.name
