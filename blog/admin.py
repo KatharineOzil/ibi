@@ -7,7 +7,7 @@ from .models import Announcement
 
 # Register your models here.
 class UserProfileAdmin(admin.ModelAdmin):
-	list_display = ('username', 'email', 'status')
+	list_display = ('username', 'email', 'is_staff', 'status')
 
 class NewsAdmin(admin.ModelAdmin):
 	list_display = ('title', 'name', 'place', 'lec_time')

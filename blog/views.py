@@ -102,6 +102,7 @@ def team(request):
 
     team = UserProfile.objects.all()
     return_result.update({'team': team})
+    b = ''
     for a in team:
         b = str(a.photo)
     photo_url = b.replace('blog/', '', 1)

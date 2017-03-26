@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>IBI</title>
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
@@ -53,7 +53,7 @@
 <script src="static/assets/js/amazeui.min.js"></script>
     
     <header class="am-topbar am-topbar-fixed-top">
-      <div class="am-container">
+      <div class="am-container" >
         <h1 class="am-topbar-brand">
         <a href="#">IBI</a></h1>
 
@@ -70,7 +70,7 @@
               <li><a href="tools">研究工具</a></li>-->
           {% if username %}
           <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 780px; ">
+            <ul class="am-nav am-nav-pills am-topbar-nav" style="min-width: 780px; ">
               <li class="am-active"><a href="/">首页</a></li>
               <li><a href="sci_news">科研动态</a></li>
               <li><a href="direction">科研方向</a></li>
@@ -93,7 +93,7 @@
             </div>
           {% else %}
           <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 870px; ">
+            <ul class="am-nav am-nav-pills am-topbar-nav" style="min-width: 870px; ">
               <li class="am-active"><a href="/">首页</a></li>
               <li><a href="sci_news">科研动态</a></li>
               <li><a href="direction">科研方向</a></li>
@@ -112,22 +112,6 @@
                   </ul>
                 </li>
             </ul>
-
-          <!--</ul>
-            <div class="am-topbar-right">
-              <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="window.location='admin'"><span class="am-icon-user"></span> 管理员登录</button>
-            </div>
-            <div class="am-topbar-right">
-              <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="window.location='register'"><span class="am-icon-pencil"></span> 注册
-            </div>
-
-            <div class="am-topbar-right">
-              <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="window.location='login'">
-                <span class="am-icon-user"></span> 登录
-              </button>
-            </div>
-
-            <a href='forget_password'>忘记密码</a>放在登录界面-->
           {% endif %}
         </div>
       </div>
