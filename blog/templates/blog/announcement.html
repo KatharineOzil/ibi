@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 	<br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-bell-o am-icon-xs"></i> 公告通知</h1>
+    <h1><i class="am-icon-bell-o am-icon-xs"></i> {% blocktrans %}公告通知{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -13,8 +14,8 @@
 	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
 	<thead>
         <tr>
-            <th>通知</th>
-            <th>创建时间</th>
+            <th>{% blocktrans %}通知{% endblocktrans%}</th>
+            <th>{% blocktrans %}创建时间{% endblocktrans%}</th>
         </tr>
     </thead>
     <tbody>
@@ -27,7 +28,7 @@
       	{% endfor %}
       {% else %}
         <tr>
-            <td>暂无数据</td>
+            <td>{% blocktrans %}暂无数据{% endblocktrans%}</td>
             <td></td>
         </tr>
       {% endif %}

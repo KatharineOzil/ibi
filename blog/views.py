@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
-
 from django.shortcuts import render, HttpResponseRedirect, render_to_response
 from .models import UserProfile
-from .models import ResearchRoom
+from .models import Lab
 from .models import News
 from .models import Announcement
 from .models import Tools
@@ -17,9 +16,10 @@ from django.db import connection
 from django.contrib import messages
 import json
 from django.http import JsonResponse
+from django.utils.translation import ugettext as _
+from .pinyin import PinYin
+from django.utils.translation import LANGUAGE_SESSION_KEY
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
 # Create your views here.
 
 def index(request):
@@ -37,6 +37,9 @@ def index(request):
 
     f = SearchForm()
     return_result.update({'form': f})
+    #request.session[LANGUAGE_SESSION_KEY] = 'cn'
+    print request.LANGUAGE_CODE
+    request.session['django_language'] = 'cn'
     return render(request, 'blog/index.html', return_result)
 
 def news(request):
@@ -87,7 +90,7 @@ def direction(request):
     else:
         pass
 
-    direction = ResearchRoom.objects.all()
+    direction = Lab.objects.all()
     return_result.update({'direction': direction})
     return render(request, 'blog/direction.html', return_result)
 
@@ -151,7 +154,7 @@ def search(request):
             result_ann = Announcement.objects.filter( Q(title__contains=search) )
             result_news = News.objects.filter( Q(title__contains=search) | Q(text__contains=search) | Q(name__contains=search) | Q(place__contains=search))
             result_tools = Tools.objects.filter( Q(title__contains=search) | Q(text__contains=search))
-            result_room = ResearchRoom.objects.filter( Q(name__contains=search) | Q(direction__contains=search))
+            result_room = Lab.objects.filter( Q(name__contains=search) | Q(direction__contains=search))
             result_user = UserProfile.objects.filter( Q(username__contains=search) | Q(information__contains=search) | Q(patent__contains=search) | Q(project__contains=search) | Q(works__contains=search) | Q(article__contains=search))
             result = chain(result_user, result_ann, result_room, result_tools, result_news)
             return_result.update({'form': f, 'result': result})
@@ -209,7 +212,8 @@ def user_register(request):
     elif request.method == 'POST':
         f = UserRegisterForm(request.POST)
         if not f.is_valid():
-            message = {'message': '请填写信息'}
+            output = _("请填写信息")
+            message = {'message': output}
             data = json.dumps(message,separators=(',',':'))                
             return JsonResponse(data, safe=False)
             #return render(request, 'blog/register.html', {'form': f})
@@ -219,12 +223,15 @@ def user_register(request):
             password_confirm = f.cleaned_data['password_confirm']
             email = f.cleaned_data['email']
             if not UserProfile.objects.all().filter(email=email):
-                UserProfile.objects.create(username=username,password=make_password(password, None, 'pbkdf2_sha256'),email=email)
-                message = {'message': '注册成功！请等待管理员审核'}
+                username_pin = hanzi2pinyin(username)
+                UserProfile.objects.create(username=username, username_pin=username_pin, password=make_password(password, None, 'pbkdf2_sha256'),email=email)
+                output = _("注册成功！请等待管理员审核")
+                message = {'message': output}
                 data = json.dumps(message,separators=(',',':'))                
                 return JsonResponse(data, safe=False)
                 #return render(request, 'blog/register.html', {'message': '注册成功！请等待管理员审核', 'form': f}) 
-            message = {'message': '该邮箱已被注册，有疑问请联系管理员'}
+            output = _("该邮箱已被注册，有疑问请联系管理员")
+            message = {'message': output}
             data = json.dumps(message,separators=(',',':'))                
             return JsonResponse(data, safe=False)
             #return render(request, 'blog/register.html', {'message': '该邮箱已被注册，有疑问请联系管理员', 'form': f})
@@ -249,24 +256,30 @@ def user_login(request):
                     request.session['email'] = email
                     check = check_password(password, user.password)
                     if check:
-                        return HttpResponseRedirect('index')
+                        message = {}
+                        data = json.dumps(message,separators=(',',':'))                
+                        return JsonResponse(data, safe=False)
                     else:
-                        message = {'message': '用户名或密码错误，请重新登录'}
+                        output = _("用户名或密码错误")
+                        message = {'message': output}
                         data = json.dumps(message,separators=(',',':'))                
                         return JsonResponse(data, safe=False)
                         #return render(request, 'blog/login.html', {'message': '用户名或密码错误,请重新登录', 'form': f}) 
                 else:
-                    message = {'message': '注册未被审核，请联系管理员'}
+                    output = _("注册未被审核，请联系管理员")
+                    message = {'message': output}
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
                     #return render(request, 'blog/login.html', {'message': '注册未被审核，请联系管理员', 'form': f}) 
             else:
-                message = {'message': '该用户未注册'}
+                output = _('该用户未注册')
+                message = {'message': output}
                 data = json.dumps(message,separators=(',',':'))                
                 return JsonResponse(data, safe=False)
                 #return render(request, 'blog/login.html', {'message': '该用户未注册', 'form': f}) 
         else:
-            message = {'message': '请填写信息'}
+            output = _('请填写信息')
+            message = {'message': output}
             data = json.dumps(message,separators=(',',':'))                
             return JsonResponse(data, safe=False)
             #return render(request, 'blog/login.html', {'form': f})
@@ -299,22 +312,25 @@ def change_password(request):
                 if check:
                     user.password = new_password
                     user.save()
-                    message = {'message': '修改成功'}
+                    output = _('修改成功')
+                    message = {'message': output}
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
                     #return render(request, 'blog/change_password.html', {'message': '修改成功！', 'form': f})#alert success & loginagain???
                 else:
-                    message = {'message': '旧密码输入错误'}
+                    output = _('旧密码输入错误')
+                    message = {'message': output}
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
                     #return render(request, 'blog/change_password.html', {'message': '旧密码输入错误！', 'form': f})
             else:
-                message = {'message': '请填写信息'}
+                output = _('请填写信息')
+                message = {'message': output}
                 data = json.dumps(message,separators=(',',':'))                
                 return JsonResponse(data, safe=False)
                 #return render_to_response('blog/index.html',{'username':username, 'email':email})
     else:
-        return render(request, 'blog/login.html', {'form': UserLoginForm(), 'message': '请先登录！'})
+        return render(request, 'blog/login.html', {'form': UserLoginForm()})
 
 def forget_password(request):
     if request.method == 'GET':
@@ -328,21 +344,25 @@ def forget_password(request):
             try:
                 user = UserProfile.objects.all().get(email=email)
                 if not user or user.username != username:
-                    message = {'message': '用户信息不正确'}
+                    output = _('用户信息不正确')
+                    message = {'message': output}
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
                 else:
                     user.status = '需重置密码'
                     user.save()
-                    message = {'message': '已通知管理员重置密码'}
+                    output = _('已通知管理员重置密码')
+                    message = {'message': output}
                     data = json.dumps(message,separators=(',',':'))                
                     return JsonResponse(data, safe=False)
             except UserProfile.DoesNotExist:
-                message = {'message': '用户不存在'}
+                output = _('用户不存在')
+                message = {'message': output}
                 data = json.dumps(message,separators=(',',':'))                
                 return JsonResponse(data, safe=False)
         else:
-            message = {'message': '请填写信息'}
+            output = _('请填写信息')
+            message = {'message': output}
             data = json.dumps(message,separators=(',',':'))                
             return JsonResponse(data, safe=False)
 

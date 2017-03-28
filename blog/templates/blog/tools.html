@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <br/>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-cogs am-icon-xs"></i> 研究工具</h1>
+    <h1><i class="am-icon-cogs am-icon-xs"></i> {% blocktrans %}研究工具{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -18,7 +19,7 @@
         </div>
   <div class="am-panel-bd">
     <p>{{tools.text}}<br/>
-    <a href ="{{ STATIC_URL }}{{ attachment }}" download>附件下载</a></p>
+    <a href ="{{ STATIC_URL }}{{ attachment }}" download>{% blocktrans %}附件下载{% endblocktrans%}</a></p>
   </div>
   </div>
     {% endfor %}
@@ -28,7 +29,7 @@
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">
-        暂无数据</h3>
+        {% blocktrans %}暂无数据{% endblocktrans%}</h3>
         <br>
         </div>
     </div>

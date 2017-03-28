@@ -1,9 +1,11 @@
 {% load staticfiles %}
-  {% load material_form %} 
+{% load material_form %} 
+{% load i18n %}
 <html class="no-js">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -51,7 +53,6 @@
   <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
   <![endif]-->
 <script src="static/assets/js/amazeui.min.js"></script>
-    
     <header class="am-topbar am-topbar-fixed-top">
       <div class="am-container" >
         <h1 class="am-topbar-brand">
@@ -61,57 +62,51 @@
             data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
             class="am-icon-bars"></span></button>
 
-          <!--<div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav" style="width: 780px; ">
-              <li class="am-active"><a href="/">首页</a></li>
-              <li><a href="sci_news">科研动态</a></li>
-              <li><a href="direction">科研方向</a></li>
-              <li><a href="team">科研队伍</a></li>
-              <li><a href="tools">研究工具</a></li>-->
-          {% if username %}
           <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav" style="min-width: 780px; ">
-              <li class="am-active"><a href="/">首页</a></li>
-              <li><a href="sci_news">科研动态</a></li>
-              <li><a href="direction">科研方向</a></li>
-              <li><a href="team">科研队伍</a></li>
-              <li><a href="tools">研究工具</a></li>
+            <ul class="am-nav am-nav-pills am-topbar-nav" >
+              <li class="am-active"><a href="/"> {% blocktrans %}首页{% endblocktrans%}</a></li>
+              <li><a href="sci_news">{% blocktrans %}科研动态{% endblocktrans%}</a></li>
+              <li><a href="direction">{% blocktrans %}科研方向{% endblocktrans%}</a></li>
+              <li><a href="team">{% blocktrans %}科研队伍{% endblocktrans%}</a></li>
+              <li><a href="tools">{% blocktrans %}研究工具{% endblocktrans%}</a></li>
+          {% if username %}
                 <li class="am-dropdown " data-am-dropdown>
                   <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                  个人管理 <span class="am-icon-caret-down"></span>
+                  {% blocktrans %}个人管理{% endblocktrans%} <span class="am-icon-caret-down"></span>
                   </a>
                   <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">个人管理</li>
-                    <li><a href="user_detail"><span class="am-icon-pencil-square"></span> 修改个人资料</a></li>
-                    <li><a href="change_password"><span class="am-icon-pencil-square-o"></span> 修改密码</a></li>
-                    <li><a href="logout"><span class="am-icon-times"></span> 注销</a></li>
+                    <li class="am-dropdown-header">{% blocktrans %}个人管理{% endblocktrans%}</li>
+                    <li><a href="user_detail"><span class="am-icon-pencil-square"></span> {% blocktrans %}修改个人资料{% endblocktrans%}</a></li>
+                    <li><a href="change_password"><span class="am-icon-pencil-square-o"></span> {% blocktrans %}修改密码{% endblocktrans%}</a></li>
+                    <li><a href="logout"><span class="am-icon-times"></span> {% blocktrans %}注销{% endblocktrans%}</a></li>
                   </ul>
                 </li>
             </ul>
-             <div class="am-topbar-right">
-                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 欢迎您，{{username}}</button>
+            <div class="am-topbar-right">
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
             </div>
+             <div class="am-topbar-right">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> {% blocktrans %}欢迎您{% endblocktrans%}，{{username}}</button>
+            </div>
+            
           {% else %}
-          <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav" style="min-width: 870px; ">
-              <li class="am-active"><a href="/">首页</a></li>
-              <li><a href="sci_news">科研动态</a></li>
-              <li><a href="direction">科研方向</a></li>
-              <li><a href="team">科研队伍</a></li>
-              <li><a href="tools">研究工具</a></li>
-                <li class="am-dropdown" style="float: right" data-am-dropdown>
+                <li class="am-dropdown" data-am-dropdown>
                   <a class="am-dropdown-toggle " data-am-dropdown-toggle href="javascript:;">
-                  用户功能 <span class="am-icon-caret-down"></span>
+                  {% blocktrans %}用户功能{% endblocktrans%} <span class="am-icon-caret-down"></span>
                   </a>
                   <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">用户功能</li>
-                    <li><a href="login"><span class="am-icon-user"></span> 登录</a></li>
-                    <li><a href="register"><span class="am-icon-pencil"></span> 注册</a></li>
-                    <li><a href="forget_password"><span class="am-icon-exclamation"></span>  忘记密码</a></li>
-                    <li><a href="admin"><span class="am-icon-star"></span> 管理员登录</a></li>
+                    <li class="am-dropdown-header">{% blocktrans %}用户功能{% endblocktrans%}</li>
+                    <li><a href="login"><span class="am-icon-user"></span> {% blocktrans %}登录{% endblocktrans%}</a></li>
+                    <li><a href="register"><span class="am-icon-pencil"></span> {% blocktrans %}注册{% endblocktrans%}</a></li>
+                    <li><a href="forget_password"><span class="am-icon-exclamation"></span>  {% blocktrans %}忘记密码{% endblocktrans%}</a></li>
+                    <li><a href="admin"><span class="am-icon-star"></span> {% blocktrans %}管理员登录{% endblocktrans%}</a></li>
                   </ul>
                 </li>
             </ul>
+               <div class="am-topbar-right">
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
+            </div>
+
           {% endif %}
         </div>
       </div>

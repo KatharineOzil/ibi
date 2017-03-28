@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 	<br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-search am-icon-xs"></i> 搜索结果</h1>
+    <h1><i class="am-icon-search am-icon-xs"></i> {% blocktrans %}搜索结果{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -14,8 +15,8 @@
 	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
 	<thead>
         <tr>
-            <th>标题</th>
-            <th>具体内容</th>
+            <th>{% blocktrans %}标题{% endblocktrans%}</th>
+            <th>{% blocktrans %}具体内容{% endblocktrans%}</th>
         </tr>
     </thead>
     <tbody>
@@ -29,7 +30,7 @@
       {% else %}
 
         <tr>
-            <td>暂无数据</td>
+            <td>{% blocktrans %}暂无数据{% endblocktrans%}</td>
         </tr>
 
       {% endif %}

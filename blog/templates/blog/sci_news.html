@@ -1,9 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <br/>	<div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-archive am-icon-xs"></i> 最新动态</h1>
+    <h1><i class="am-icon-archive am-icon-xs"></i> {% blocktrans %}科研动态{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -12,14 +13,14 @@
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
 		<div class="am-panel am-panel-default">
   			<div class="am-panel-hd">
-    			<h3 class="am-panel-title">获得专利</h3>
+    			<h3 class="am-panel-title">{% blocktrans %}获得专利{% endblocktrans%}</h3>
   			</div>
  			{% for user_result in user_result %}
   			<table class="am-table">
     			<thead>
         		<tr>
-            		<th>专利名称</th>
-            		<th>作者</th>
+            		<th>{% blocktrans %}专利名称{% endblocktrans%}</th>
+            		<th>{% blocktrans %}作者{% endblocktrans%}</th>
         		</tr>
     			</thead>
     			<tbody>
@@ -37,14 +38,14 @@
 <br/>
         <div class="am-panel am-panel-default">
         	<div class="am-panel-hd">
-    			<h3 class="am-panel-title">文章发表</h3>
+    			<h3 class="am-panel-title">{% blocktrans %}文章发表{% endblocktrans%}</h3>
   			</div>
 			{% for user_result in user_result %}
 			<table class="am-table">
     			<thead>
         		<tr>
-            		<th>文章题目</th>
-            		<th>作者</th>
+            		<th>{% blocktrans %}文章题目{% endblocktrans%}</th>
+            		<th>{% blocktrans %}作者{% endblocktrans%}</th>
         		</tr>
     			</thead>
     			<tbody>
@@ -61,14 +62,14 @@
 <br/>
         <div class="am-panel am-panel-default">
   			<div class="am-panel-hd">
-    			<h3 class="am-panel-title">著作发表</h3>
+    			<h3 class="am-panel-title">{% blocktrans %}著作发表{% endblocktrans%}</h3>
   			</div>
 			{% for user_result in user_result %}
   			<table class="am-table">
     			<thead>
         		<tr>
-            		<th>著作题目</th>
-		            <th>作者</th>
+            		<th>{% blocktrans %}著作题目{% endblocktrans%}</th>
+		            <th>{% blocktrans %}作者{% endblocktrans%}</th>
         		</tr>
     			</thead>
     			<tbody>

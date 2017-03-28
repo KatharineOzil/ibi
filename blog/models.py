@@ -81,7 +81,8 @@ class UserProfile(models.Model):
         )
 
 
-    username = models.CharField(max_length=30, verbose_name="姓名")
+    username = models.CharField(max_length=50, verbose_name="姓名")
+    username_pin = models.CharField(max_length=50, verbose_name="姓名拼音")
     password = models.CharField(max_length=200, verbose_name="密码")
     email = models.EmailField(max_length=50, verbose_name="邮箱")
     category = models.CharField(max_length=30, blank=True, default="--", choices=category_choice, verbose_name="类别")
@@ -110,13 +111,15 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.username
 
-class ResearchRoom(models.Model):
+class Lab(models.Model):
     class Meta:
         verbose_name = '研究室'
         verbose_name_plural = '研究室'
 
     name = models.CharField(max_length=100, verbose_name="研究室名称")
+    name_en = models.CharField(max_length=100, verbose_name="研究室英文名")
     direction = models.TextField(blank=True, verbose_name="研究方向")
+    direction_en = models.TextField(blank=True, verbose_name="英文简介")
     user = models.ManyToManyField(UserProfile, verbose_name="研究室人员")
 
     def __str__(self):

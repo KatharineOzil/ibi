@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 	<br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-newspaper-o am-icon-xs"></i> 最新动态</h1>
+    <h1><i class="am-icon-newspaper-o am-icon-xs"></i> {% blocktrans %}最新动态{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -18,21 +19,21 @@
     <div class="am-panel am-panel-default">
     <div class="am-panel-hd">
       <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#news-1'}">
-        {{news.title}}（地点：{{news.place}}、时间：{{news.lec_time}}）
+        {{news.title}}（{% blocktrans %}地点{% endblocktrans%}：{{news.place}}、{% blocktrans %}时间{% endblocktrans%}：{{news.lec_time}}）
       </h4>
     </div>
     <div id="news-1" class="am-panel-collapse am-collapse am-in">
       <div class="am-panel-bd">
-        主讲人：{{news.name}}<br/>
-        内容简介：{{news.text}}<br/>
+        {% blocktrans %}主讲人{% endblocktrans%}：{{news.name}}<br/>
+        {% blocktrans %}内容简介{% endblocktrans%}：{{news.text}}<br/>
         {% if news.host %}
-        主持人：{{news.host}}<br/>
+        {% blocktrans %}主持人{% endblocktrans%}：{{news.host}}<br/>
         {% endif %}
         {% if news.organizers %}
-        主办单位：{{news.organizers}}<br/>
+        {% blocktrans %}主办单位{% endblocktrans%}：{{news.organizers}}<br/>
         {% endif %}
         {% if news.presenter_detail%}
-        主讲人简介：{{news.presenter_detail}}<br/>
+        {% blocktrans %}主讲人简介{% endblocktrans%}：{{news.presenter_detail}}<br/>
         {% endif %}
       </div>
     </div>
@@ -44,7 +45,7 @@
 <div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
   <table class="am-table am-table-striped am-table-hover am-u-sm-centered">
   <thead>
-    <tr>暂无数据</tr>
+    <tr>{% blocktrans %}暂无数据{% endblocktrans%}</tr>
   </thead>
   </table>
 </div>

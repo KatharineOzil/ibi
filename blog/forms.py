@@ -2,6 +2,8 @@
 from django import forms
 from .models import UserProfile
 from django.utils.safestring import mark_safe
+from django.utils.translation import ugettext_lazy as _
+
 
 class UserRegisterForm(forms.ModelForm):
     class Meta:
@@ -9,10 +11,14 @@ class UserRegisterForm(forms.ModelForm):
         fields = ['username', 'email', 'password', 'password_confirm']
 
     # https://docs.djangoproject.com/en/1.10/ref/models/fields/
-    username = forms.CharField(max_length=50, required=True, label=mark_safe('姓名'))
-    email = forms.EmailField(max_length=50, required=True, label=mark_safe('<br/>邮箱'))
-    password = forms.CharField(max_length=16, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>密码'))
-    password_confirm = forms.CharField(max_length=16, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>重复密码'))
+    output1 = _(u"姓名")
+    output2 = _(u"邮箱")
+    output3 = _(u"密码")
+    output4 = _(u"重复密码")
+    username = forms.CharField(max_length=50, required=True, label=mark_safe('%s' % output1))
+    email = forms.EmailField(max_length=50, required=True, label=mark_safe('<br/>%s' % output2))
+    password = forms.CharField(max_length=16, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>%s' % output3))
+    password_confirm = forms.CharField(max_length=16, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>%s'%output4))
 
     '''
     def is_valid(self):
@@ -33,8 +39,10 @@ class UserLoginForm(forms.ModelForm):
         model = UserProfile
         fields = ['email', 'password']
 
-    email = forms.CharField(max_length=50, required=True, label='邮箱')
-    password = forms.CharField(max_length=17, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>密码'))
+    output1 = _(u"邮箱")
+    output2 = _(u"密码")
+    email = forms.CharField(max_length=50, required=True, label=mark_safe('%s' % output1))
+    password = forms.CharField(max_length=17, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>%s' % output2))
 
     '''
     def clean(self):
@@ -50,9 +58,12 @@ class UserChangePasswordForm(forms.ModelForm):
         model = UserProfile
         fields = ['old_password', 'new_password', 'password_confirm']
 
-    old_password = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label='旧密码')
-    new_password = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>新密码'))
-    password_confirm = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>重复新密码'))
+    output1 = _(u"旧密码")
+    output2 = _(u"新密码")
+    output3 = _(u"重复新密码")
+    old_password = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label=mark_safe('%s' % output1))
+    new_password = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>%s' %output2))
+    password_confirm = forms.CharField(max_length=200, required=True, widget=forms.PasswordInput, label=mark_safe('<br/>%s' % output3))
 
     '''
     def is_valid(self):
@@ -105,8 +116,11 @@ class UserDetailForm(forms.ModelForm):
     works = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>著作发表'))
 
 class SearchForm(forms.Form):
-    search = forms.CharField(max_length=200, label='站内搜索')
+    output = _(u"站内搜索")
+    search = forms.CharField(max_length=200, label=output)
 
 class ForgetPasswordForm(forms.Form):
-    email = forms.EmailField(max_length=50, required=True, label='邮箱')
-    username = forms.CharField(max_length=50, required=True, label=mark_safe('<br/>姓名'))
+    output1 = _(u"邮箱")
+    output2 = _(u"姓名")
+    email = forms.EmailField(max_length=50, required=True, label=mark_safe('%s' % output1))
+    username = forms.CharField(max_length=50, required=True, label=mark_safe('<br/> %s' %output2))

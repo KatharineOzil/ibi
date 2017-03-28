@@ -9,6 +9,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include(frontend_urls)),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^$', views.index, name='index'),
     url(r'^index$', views.index, name='index'),
     url(r'^user_detail$', views.user_detail, name='user_detail'),    

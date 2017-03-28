@@ -1,9 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block content %}
 	<br/>  <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-users am-icon-xs"></i> 科研队伍</h1>
+    <h1><i class="am-icon-users am-icon-xs"></i> {% blocktrans %}科研队伍{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
@@ -16,7 +17,7 @@
             </div>
             <div class="am-panel-bd-team" >
                 <div class="am-fl">
-                个人简介：{{team.information}}<br/>
+                {% blocktrans %}个人简介{% endblocktrans%}：{{team.information}}<br/>
                 {{team.patent}}<br/>
                 {{team.article}}<br/>{{team.works}}<br/>
                 </div>
