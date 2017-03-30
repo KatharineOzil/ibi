@@ -55,6 +55,7 @@ MIDDLEWARE_CLASSES= [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'blog.middleware.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'ibi.urls'
@@ -123,7 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -134,7 +135,7 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
-    ('cn', ('China')),
+    ('zh', ('China')),
     ('en', ('English')),
 )
 

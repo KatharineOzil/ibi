@@ -5,7 +5,6 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -45,7 +44,6 @@
   <!--[if (gte IE 9)|!(IE)]><!-->
   <script src="static/assets/js/jquery.min.js"></script>
   <script src="static/assets/js/jquery.form.js"></script>
-
   <!--<![endif]-->
   <!--[if lte IE 8 ]>
   <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
@@ -64,7 +62,7 @@
 
           <div class="am-collapse am-topbar-collapse" id="collapse-head">
             <ul class="am-nav am-nav-pills am-topbar-nav" >
-              <li class="am-active"><a href="/"> {% blocktrans %}首页{% endblocktrans%}</a></li>
+              <li class="am-active"><a href="/{{lang_prefix}}"> {% blocktrans %}首页{% endblocktrans%}</a></li>
               <li><a href="sci_news">{% blocktrans %}科研动态{% endblocktrans%}</a></li>
               <li><a href="direction">{% blocktrans %}科研方向{% endblocktrans%}</a></li>
               <li><a href="team">{% blocktrans %}科研队伍{% endblocktrans%}</a></li>
@@ -82,12 +80,14 @@
                   </ul>
                 </li>
             </ul>
-            <div class="am-topbar-right">
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
-            </div>
-             <div class="am-topbar-right">
-                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> {% blocktrans %}欢迎您{% endblocktrans%}，{{username}}</button>
-            </div>
+                <div class="am-topbar-right">
+                  {% if request.LANGUAGE_CODE == 'en' %}
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> {% blocktrans %}中文{% endblocktrans%}</button>
+                    
+                  {% else %}
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
+                  {% endif %}
+                </div>
             
           {% else %}
                 <li class="am-dropdown" data-am-dropdown>
@@ -103,9 +103,14 @@
                   </ul>
                 </li>
             </ul>
-               <div class="am-topbar-right">
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
-            </div>
+                <div class="am-topbar-right">
+                  {% if request.LANGUAGE_CODE == 'en' %}
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> {% blocktrans %}中文{% endblocktrans%}</button>
+                    
+                  {% else %}
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
+                  {% endif %}
+                </div>
 
           {% endif %}
         </div>

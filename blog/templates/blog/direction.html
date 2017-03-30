@@ -9,7 +9,7 @@
   </div>
   <hr />
 </div>
-{% if request.session.LANGUAGE_SESSION_KEY = 'cn' %}
+{% if request.LANGUAGE_CODE == 'zh' %}
 <div class="am-g">
 <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
         {% for direction in direction %}

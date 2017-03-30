@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
 from itertools import chain
-import sys
 from django.db.models import Q
 from django.db import connection
 from django.contrib import messages
@@ -19,10 +18,11 @@ from django.http import JsonResponse
 from django.utils.translation import ugettext as _
 from .pinyin import PinYin
 from django.utils.translation import LANGUAGE_SESSION_KEY
+from django.template import RequestContext
+from django.template.context_processors import i18n
 
 # Create your views here.
-
-def index(request):
+def index(request, lang=None):
     return_result = {}
     news = News.objects.all().order_by('-id')[:1]
     announcement = Announcement.objects.all().order_by('-id')[:1]
@@ -38,8 +38,8 @@ def index(request):
     f = SearchForm()
     return_result.update({'form': f})
     #request.session[LANGUAGE_SESSION_KEY] = 'cn'
-    print request.LANGUAGE_CODE
-    request.session['django_language'] = 'cn'
+    #print request.LANGUAGE_CODE
+    return_result.update({'LANGUAGE_CODE': request.LANGUAGE_CODE})
     return render(request, 'blog/index.html', return_result)
 
 def news(request):
