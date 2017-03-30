@@ -223,7 +223,9 @@ def user_register(request):
             password_confirm = f.cleaned_data['password_confirm']
             email = f.cleaned_data['email']
             if not UserProfile.objects.all().filter(email=email):
-                username_pin = hanzi2pinyin(username)
+                text=PinYin('blog/data/word.data')
+                text.load()
+                username_pin = map(str.upper, text.hanzi2pinyin(username))
                 UserProfile.objects.create(username=username, username_pin=username_pin, password=make_password(password, None, 'pbkdf2_sha256'),email=email)
                 output = _("注册成功！请等待管理员审核")
                 message = {'message': output}
