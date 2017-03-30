@@ -9,13 +9,13 @@
   </div>
   <hr />
 </div>
-{% if request.LANGUAGE_CODE == 'zh' %}
+{% if request.LANGUAGE_CODE == 'en' %}
 <div class="am-g">
 <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
         {% for direction in direction %}
         <div class="am-panel am-panel-default">
             <div class="am-panel-hd">
-                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name}}({{direction.username}})</h3>
+                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name}}({{direction.username_pin}})</h3>
             </div>
 
 <table class="am-table am-u-md-8 am-u-sm-centered">
@@ -35,7 +35,7 @@
         {% for direction in direction %}
         <div class="am-panel am-panel-default">
             <div class="am-panel-hd">
-                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name}}({{direction.username_pin}})</h3>
+                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name}}({{direction.username}})</h3>
             </div>
 
 <table class="am-table am-u-md-8 am-u-sm-centered">
