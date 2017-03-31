@@ -38,8 +38,6 @@ def index(request, lang=None):
 
     f = SearchForm()
     return_result.update({'form': f})
-    #request.session[LANGUAGE_SESSION_KEY] = 'cn'
-    #print request.LANGUAGE_CODE
     return_result.update({'LANGUAGE_CODE': request.LANGUAGE_CODE})
     return render(request, 'blog/index.html', return_result)
 
@@ -97,6 +95,9 @@ def direction(request):
 
     direction = Lab.objects.all()
     return_result.update({'direction': direction})
+    for a in direction:
+        a.users = a.user.all()
+        
     return render(request, 'blog/direction.html', return_result)
 
 def team(request):
