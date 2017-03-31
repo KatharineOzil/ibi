@@ -96,8 +96,12 @@ def direction(request):
     direction = Lab.objects.all()
     return_result.update({'direction': direction})
     for a in direction:
-        a.users = a.user.all()
-        
+        c = a.user.all()
+        a.users = str(c).replace('UserProfile:','')
+        a.users_pin = ""
+        for b in c:
+            a.users_pin += "<"+b.username_pin+">"
+
     return render(request, 'blog/direction.html', return_result)
 
 def team(request):
