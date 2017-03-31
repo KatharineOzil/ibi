@@ -9,17 +9,21 @@
   </div>
   <hr />
 </div>
+
  {% if tools %}
+ {% if request.LANGUAGE_CODE == 'en' %}
       {% for tools in tools %}
    <div class="am-g">
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
-          <h3 class="am-panel-title">{{tools.title}}</h3>
+          <h3 class="am-panel-title">{{tools.title_en}}</h3>
         </div>
   <div class="am-panel-bd">
-    <p>{{tools.text}}<br/>
+    <p>{{tools.text_en}}<br/>
+    {% if attachment %}
     <a href ="{{ STATIC_URL }}{{ attachment }}" download>{% blocktrans %}附件下载{% endblocktrans%}</a></p>
+    {% endif %}
   </div>
   </div>
     {% endfor %}
@@ -35,5 +39,35 @@
     </div>
     </div>
     </div>
+{% else %}
+ {% for tools in tools %}
+   <div class="am-g">
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{{tools.title}}</h3>
+        </div>
+  <div class="am-panel-bd">
+    <p>{{tools.text}}<br/>
+    {% if attachment %}
+    <a href ="{{ STATIC_URL }}{{ attachment }}" download>{% blocktrans %}附件下载{% endblocktrans%}</a></p>
     {% endif %}
+  </div>
+  </div>
+    {% endfor %}
+    {% else %}
+    <div class="am-g">
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">
+        {% blocktrans %}暂无数据{% endblocktrans%}</h3>
+        <br>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endif %}
+    {% endif %}
+
 {% endblock %}

@@ -137,9 +137,7 @@ def tools(request):
         return_result.update({'tools': tools})
         for a in tools:
             if a.attachment:
-                attachment = str(a.attachment)
-                attachment = attachment.replace('blog/', '', 1)
-                return_result.update({'attachment': attachment})
+                a.attachment = str(a.attachment).replace('blog/', '', 1)
             else:
                 pass
         return render(request, 'blog/tools.html', return_result)

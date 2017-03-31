@@ -28,7 +28,9 @@ class Tools(models.Model):
         verbose_name_plural = '研究工具'
 
     title = models.CharField(max_length=200, verbose_name="标题")
+    title_en = models.CharField(max_length=200, verbose_name="英文标题")
     text = models.TextField(verbose_name="详细内容") 
+    text_en = models.TextField(verbose_name="英文简介")
     created_date = models.DateTimeField(default=timezone.now, verbose_name="创建时间")
     attachment = models.FileField(upload_to='blog/static/attachment/tools/', blank=True, verbose_name="相关附件")
 
@@ -70,7 +72,7 @@ class UserProfile(models.Model):
         ('副教授', '副教授'),
         ('教授', '教授'),
         ('特聘教授', '特聘教授'),
-        #('特聘副教授', '特聘副教授')
+        ('特聘副教授', '特聘副教授'),
         ('兼职教授', '兼职教授'),
         )
 
