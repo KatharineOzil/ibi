@@ -28,10 +28,11 @@ def index(request, lang=None):
     announcement = Announcement.objects.all().order_by('-id')[:1]
     return_result.update({'news': news, 'announcement': announcement})
 
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -44,10 +45,11 @@ def index(request, lang=None):
 
 def news(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -57,10 +59,11 @@ def news(request):
 
 def announcement(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -70,10 +73,11 @@ def announcement(request):
 
 def sci_news(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -83,10 +87,11 @@ def sci_news(request):
 
 def direction(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -96,10 +101,11 @@ def direction(request):
 
 def team(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -114,10 +120,11 @@ def team(request):
 
 def tools(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
 
@@ -137,10 +144,11 @@ def tools(request):
 
 def search(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         pass
     if request.method == 'GET':
@@ -165,10 +173,11 @@ def search(request):
 
 def user_detail(request):
     return_result = {}
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
-        return_result.update({'username': username, 'email': email})
+        username_pin = request.session['username_pin']
+        return_result.update({'username': username, 'email': email, 'username_pin': username_pin})
     else:
         return HttpResponseRedirect('login')#alert login
     
@@ -224,12 +233,13 @@ def user_register(request):
             email = f.cleaned_data['email']
             if not UserProfile.objects.all().filter(email=email):
                 text=PinYin('blog/data/word.data')
-                text.load()
-                username_pin = map(str.upper, text.hanzi2pinyin(username))
-                UserProfile.objects.create(username=username, username_pin=username_pin, password=make_password(password, None, 'pbkdf2_sha256'),email=email)
+                text.load_word()
+                user = map(str.upper, text.hanzi2pinyin(username))
+                username_pin = '%s %s' % (''.join(user[1:]), user[0])
+                UserProfile.objects.create(username=username, username_pin=username_pin, password=password,email=email)
                 output = _("注册成功！请等待管理员审核")
                 message = {'message': output}
-                data = json.dumps(message,separators=(',',':'))                
+                data = json.dumps(message,separators=(',',':'))  
                 return JsonResponse(data, safe=False)
                 #return render(request, 'blog/register.html', {'message': '注册成功！请等待管理员审核', 'form': f}) 
             output = _("该邮箱已被注册，有疑问请联系管理员")
@@ -256,6 +266,7 @@ def user_login(request):
                 if user.is_staff:
                     request.session['username'] = user.username
                     request.session['email'] = email
+                    request.session['username_pin'] = user.username_pin
                     check = check_password(password, user.password)
                     if check:
                         message = {}
@@ -290,6 +301,7 @@ def user_logout(request):#TTTTTTTTODO
     try:
         del request.session['username']
         del request.session['email']
+        del request.session['username_pin']
     except KeyError:
         pass
 
@@ -297,12 +309,13 @@ def user_logout(request):#TTTTTTTTODO
 
 def change_password(request):
     #TODO username in header
-    if request.session.get('username', None) and request.session.get('email', None):
+    if request.session.get('username', None) and request.session.get('email', None) and request.session.get('username_pin', None):
         username = request.session['username']
         email = request.session['email']
+        username_pin = request.session['username_pin']
         if request.method == 'GET':
             f = UserChangePasswordForm()
-            return render(request, 'blog/change_password.html', {'username': username, 'email': email, 'form': f})
+            return render(request, 'blog/change_password.html', {'username': username, 'email': email, 'form': f, 'username_pin': username_pin})
         elif request.method == 'POST':
             f = UserChangePasswordForm(request.POST)
             if f.is_valid():

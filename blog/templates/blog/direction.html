@@ -15,13 +15,14 @@
         {% for direction in direction %}
         <div class="am-panel am-panel-default">
             <div class="am-panel-hd">
-                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name}}({{direction.username_pin}})</h3>
+                <h3 class="am-panel-title"><i class="am-icon-user am-icon-xs"></i> {{direction.name_en}}({{direction.username_pin}})</h3>
             </div>
+
 
 <table class="am-table am-u-md-8 am-u-sm-centered">
     <thead>
         <tr>
-            <td class="am-u-md-8"><i class="am-icon-map-pin am-icon-xs"></i> {% blocktrans %}研究方向{% endblocktrans%}：{{direction.direction}}</td>
+            <td class="am-u-md-8"><i class="am-icon-map-pin am-icon-xs"></i> {% blocktrans %}研究方向{% endblocktrans%}：{{direction.direction_en}}</td>
         </tr>
     </thead>
 </table>

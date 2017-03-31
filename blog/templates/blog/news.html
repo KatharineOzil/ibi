@@ -18,11 +18,11 @@
   <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
     <div class="am-panel am-panel-default">
     <div class="am-panel-hd">
-      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#news-1'}">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#news-{{news.id}}'}">
         {{news.title}}（{% blocktrans %}地点{% endblocktrans%}：{{news.place}}、{% blocktrans %}时间{% endblocktrans%}：{{news.lec_time}}）
       </h4>
     </div>
-    <div id="news-1" class="am-panel-collapse am-collapse am-in">
+    <div id="news-{{news.id}}" class="am-panel-collapse am-collapse">
       <div class="am-panel-bd">
         {% blocktrans %}主讲人{% endblocktrans%}：{{news.name}}<br/>
         {% blocktrans %}内容简介{% endblocktrans%}：{{news.text}}<br/>

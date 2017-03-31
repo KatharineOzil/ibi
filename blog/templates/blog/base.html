@@ -82,10 +82,13 @@
             </ul>
                 <div class="am-topbar-right">
                   {% if request.LANGUAGE_CODE == 'en' %}
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> {% blocktrans %}中文{% endblocktrans%}</button>
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">Welcome,{{username_pin}}</button>
+
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> 中文</button>
                     
                   {% else %}
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">欢迎您，{{username}}</button>
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span>English</button>
                   {% endif %}
                 </div>
             
@@ -105,10 +108,10 @@
             </ul>
                 <div class="am-topbar-right">
                   {% if request.LANGUAGE_CODE == 'en' %}
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> {% blocktrans %}中文{% endblocktrans%}</button>
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=zh'"><span class="am-icon-language"></span> 中文</button>
                     
                   {% else %}
-                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span> {% blocktrans %}English{% endblocktrans%}</button>
+                    <button class="am-btn am-btn-default am-topbar-btn am-btn-sm" onclick="window.location.href='?lang=en'"><span class="am-icon-language"></span> English</button>
                   {% endif %}
                 </div>
 

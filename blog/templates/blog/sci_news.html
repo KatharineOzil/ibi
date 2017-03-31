@@ -16,31 +16,34 @@
     			<h3 class="am-panel-title">{% blocktrans %}获得专利{% endblocktrans%}</h3>
   			</div>
  			{% for user_result in user_result %}
+        {% if user_result.patent %}
   			<table class="am-table">
     			<thead>
         		<tr>
             		<th>{% blocktrans %}专利名称{% endblocktrans%}</th>
-            		<th>{% blocktrans %}作者{% endblocktrans%}</th>
+            		<th>{% blocktrans %}作者{% endblocktrans%} </th>
         		</tr>
     			</thead>
     			<tbody>
         		<tr>
-                {% if user_result.patent %}
             		<td>{{user_result.patent}}</td>
             		<td>{{user_result.username}}</td>
                 
-                {% endif %}
         		</tr>
      			</tbody>
   			</table>
-        	{% endfor %}
+        {% endif %}
+      {% endfor %}
    		</div>
 <br/>
+
+
         <div class="am-panel am-panel-default">
         	<div class="am-panel-hd">
     			<h3 class="am-panel-title">{% blocktrans %}文章发表{% endblocktrans%}</h3>
   			</div>
 			{% for user_result in user_result %}
+        {% if user_result.article %}
 			<table class="am-table">
     			<thead>
         		<tr>
@@ -50,13 +53,12 @@
     			</thead>
     			<tbody>
         		<tr>
-                {% if user_result.article %}
             		<td>{{user_result.article}}</td>
             		<td>{{user_result.username}}</td>
-                {% endif %}
         		</tr>
      			</tbody>
   			</table>
+        {% endif %}
         	{% endfor %}
   		</div>
 <br/>
@@ -65,22 +67,22 @@
     			<h3 class="am-panel-title">{% blocktrans %}著作发表{% endblocktrans%}</h3>
   			</div>
 			{% for user_result in user_result %}
+          {% if user_result.works %}
   			<table class="am-table">
     			<thead>
         		<tr>
             		<th>{% blocktrans %}著作题目{% endblocktrans%}</th>
-		            <th>{% blocktrans %}作者{% endblocktrans%}</th>
+		            <th>{% blocktrans %}作者{% endblocktrans%} </th>
         		</tr>
     			</thead>
     			<tbody>
 		        <tr>
-              {% if user_result.works %}
         	    	<td>{{user_result.works}}</td>
             		<td>{{user_result.username}}</td>
-              {% endif %}
         		</tr>
      			</tbody>
   			</table>
+           {% endif %}
         	{% endfor %}
         </div>
 	</div>
