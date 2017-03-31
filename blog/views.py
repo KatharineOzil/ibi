@@ -113,9 +113,8 @@ def team(request):
     return_result.update({'team': team})
     b = ''
     for a in team:
-        b = str(a.photo)
-    photo_url = b.replace('blog/', '', 1)
-    return_result.update({'photo_url' : photo_url})
+        a.photo = str(a.photo).replace('blog/', '', 1)
+    
     return render(request, 'blog/team.html', return_result)
 
 def tools(request):

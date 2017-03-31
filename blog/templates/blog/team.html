@@ -2,32 +2,30 @@
 {% load i18n %}
 
 {% block content %}
-	<br/>  <div class="header" >
+    <br/>  <div class="header" >
   <div class="am-g">
     <h1><i class="am-icon-users am-icon-xs"></i> {% blocktrans %}科研队伍{% endblocktrans%}</h1>
   </div>
   <hr />
 </div>
     <div class="am-g">
-	<div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
-		{% for team in team %}
+    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+        {% for team in team %}
         <div class="am-panel am-panel-default">
             <div class="am-panel-hd">
                 <h2 class="am-panel-title">{{team.username}}({{team.category}}、{{team.job_title}}、{{team.education}})</h2>
             </div>
-            <div class="am-panel-bd-team" >
-                <div class="am-fl">
+            <div class="" style="background: #FFF; padding: 1.5em">
+                <img class="am-lg-4" src="{{ STATIC_URL }}{{ team.photo }}" width="200" height="250"/>
+                <div class="am-lg-8">
                 {% blocktrans %}个人简介{% endblocktrans%}：{{team.information}}<br/>
                 {{team.patent}}<br/>
                 {{team.article}}<br/>{{team.works}}<br/>
                 </div>
-                <div class="am-fr">
-                <img src="{{ STATIC_URL }}{{ photo_url }}" width="200" height="250"/>
-                </div>
             </div>
         </div>
       {% endfor %}
-	</div>
+    </div>
     </div>
 
 {% endblock %}

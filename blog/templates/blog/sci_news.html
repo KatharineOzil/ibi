@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<br/>	<div class="header" >
+<br/> <div class="header" >
   <div class="am-g">
     <h1><i class="am-icon-archive am-icon-xs"></i> {% blocktrans %}科研动态{% endblocktrans%}</h1>
   </div>
@@ -11,81 +11,85 @@
 
 <div class="am-g">
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
-		<div class="am-panel am-panel-default">
-  			<div class="am-panel-hd">
-    			<h3 class="am-panel-title">{% blocktrans %}获得专利{% endblocktrans%}</h3>
-  			</div>
- 			{% for user_result in user_result %}
-        {% if user_result.patent %}
-  			<table class="am-table">
-    			<thead>
-        		<tr>
-            		<th>{% blocktrans %}专利名称{% endblocktrans%}</th>
-            		<th>{% blocktrans %}作者{% endblocktrans%} </th>
-        		</tr>
-    			</thead>
-    			<tbody>
-        		<tr>
-            		<td>{{user_result.patent}}</td>
-            		<td>{{user_result.username}}</td>
-                
-        		</tr>
-     			</tbody>
-  			</table>
-        {% endif %}
-      {% endfor %}
-   		</div>
-<br/>
-
-
-        <div class="am-panel am-panel-default">
-        	<div class="am-panel-hd">
-    			<h3 class="am-panel-title">{% blocktrans %}文章发表{% endblocktrans%}</h3>
-  			</div>
-			{% for user_result in user_result %}
-        {% if user_result.article %}
-			<table class="am-table">
-    			<thead>
-        		<tr>
-            		<th>{% blocktrans %}文章题目{% endblocktrans%}</th>
-            		<th>{% blocktrans %}作者{% endblocktrans%}</th>
-        		</tr>
-    			</thead>
-    			<tbody>
-        		<tr>
-            		<td>{{user_result.article}}</td>
-            		<td>{{user_result.username}}</td>
-        		</tr>
-     			</tbody>
-  			</table>
-        {% endif %}
-        	{% endfor %}
-  		</div>
-<br/>
-        <div class="am-panel am-panel-default">
-  			<div class="am-panel-hd">
-    			<h3 class="am-panel-title">{% blocktrans %}著作发表{% endblocktrans%}</h3>
-  			</div>
-			{% for user_result in user_result %}
-          {% if user_result.works %}
-  			<table class="am-table">
-    			<thead>
-        		<tr>
-            		<th>{% blocktrans %}著作题目{% endblocktrans%}</th>
-		            <th>{% blocktrans %}作者{% endblocktrans%} </th>
-        		</tr>
-    			</thead>
-    			<tbody>
-		        <tr>
-        	    	<td>{{user_result.works}}</td>
-            		<td>{{user_result.username}}</td>
-        		</tr>
-     			</tbody>
-  			</table>
-           {% endif %}
-        	{% endfor %}
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% blocktrans %}获得专利{% endblocktrans%}</h3>
         </div>
-	</div>
+
+        <table class="am-table">
+          <thead>
+            <tr>
+                <th style="width: 85%">{% blocktrans %}专利名称{% endblocktrans%}</th>
+                <th>{% blocktrans %}作者{% endblocktrans%} </th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for user_result in user_result %}
+        {% if user_result.patent %}
+            <tr>
+                <td>{{user_result.patent}}</td>
+                <td>{{user_result.username}}</td>
+                
+            </tr>
+          </tbody>
+                  {% endif %}
+      {% endfor %}
+        </table>
+
+      </div>
+<br/>
+
+
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% blocktrans %}文章发表{% endblocktrans%}</h3>
+        </div>
+
+      <table class="am-table">
+          <thead>
+            <tr>
+                <th style="width: 85%">{% blocktrans %}文章题目{% endblocktrans%}</th>
+                <th>{% blocktrans %}作者{% endblocktrans%}</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for user_result in user_result %}
+        {% if user_result.article %}
+            <tr>
+                <td>{{user_result.article}}</td>
+                <td>{{user_result.username}}</td>
+            </tr>
+                    {% endif %}
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+<br/>
+        <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% blocktrans %}著作发表{% endblocktrans%}</h3>
+        </div>
+      {% for user_result in user_result %}
+          {% if user_result.works %}
+        <table class="am-table">
+          <thead>
+            <tr>
+                <th>{% blocktrans %}著作题目{% endblocktrans%}</th>
+                <th>{% blocktrans %}作者{% endblocktrans%} </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>{{user_result.works}}</td>
+                <td>{{user_result.username}}</td>
+            </tr>
+          </tbody>
+        </table>
+           {% endif %}
+          {% endfor %}
+        </div>
+  </div>
 </div>
 
 {% endblock %}
