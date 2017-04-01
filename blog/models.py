@@ -97,6 +97,7 @@ class UserProfile(models.Model):
     patent = models.TextField(blank=True, verbose_name="获得专利情况")
     article = models.TextField(blank=True, verbose_name="文章发表情况")
     works = models.TextField(blank=True, verbose_name="著作发表情况")
+    introduction_en = models.TextField(blank=True, verbose_name="英文简介")
     is_staff = models.BooleanField(default=False, verbose_name="是否允许注册")
     status = models.CharField(max_length=10, blank=True, default='否', verbose_name="是否需要重置密码")
 

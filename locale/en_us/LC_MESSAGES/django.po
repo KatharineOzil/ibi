@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-01 00:58+0800\n"
+"POT-Creation-Date: 2017-04-01 10:52+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: blog/forms.py:14 blog/forms.py:125
+#: blog/forms.py:14 blog/forms.py:126
 msgid "姓名"
 msgstr "Username"
 
-#: blog/forms.py:15 blog/forms.py:42 blog/forms.py:124
+#: blog/forms.py:15 blog/forms.py:42 blog/forms.py:125
 msgid "邮箱"
 msgstr "Email"
 
@@ -45,7 +45,7 @@ msgstr "New Password"
 msgid "重复新密码"
 msgstr "Confirm New Password"
 
-#: blog/forms.py:120
+#: blog/forms.py:121
 msgid "站内搜索"
 msgstr "Search"
 
@@ -62,7 +62,8 @@ msgid "创建时间"
 msgstr "Create Time"
 
 #: blog/templates/blog/announcement.html:31 blog/templates/blog/news.html:48
-#: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:32
+#: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:36
+#: blog/templates/blog/tools.html.py:64
 msgid "暂无数据"
 msgstr "Not Data"
 
@@ -279,59 +280,59 @@ msgstr "Title"
 msgid "具体内容"
 msgstr "Detail"
 
-#: blog/templates/blog/team.html:23
+#: blog/templates/blog/team.html:24 blog/templates/blog/team.html.py:26
 msgid "个人简介"
 msgstr "User Profile"
 
-#: blog/templates/blog/tools.html:22
+#: blog/templates/blog/tools.html:25 blog/templates/blog/tools.html.py:53
 msgid "附件下载"
 msgstr "Attachment"
 
-#: blog/views.py:224 blog/views.py:294 blog/views.py:342 blog/views.py:379
+#: blog/views.py:227 blog/views.py:297 blog/views.py:345 blog/views.py:382
 msgid "请填写信息"
 msgstr "All Fields Are Required"
 
-#: blog/views.py:240
+#: blog/views.py:243
 msgid "注册成功！请等待管理员审核"
 msgstr "Success! Registration Success! Wait for the Administrator to Review"
 
-#: blog/views.py:245
+#: blog/views.py:248
 msgid "该邮箱已被注册，有疑问请联系管理员"
 msgstr ""
 "The Mailbox Has Been Registered. Please Contact the Administrator: "
 "xiezy@cqupt.edu.cn"
 
-#: blog/views.py:276
+#: blog/views.py:279
 msgid "用户名或密码错误"
 msgstr "User Information is Incorrect"
 
-#: blog/views.py:282
+#: blog/views.py:285
 msgid "注册未被审核，请联系管理员"
 msgstr ""
 "Registration is Not Reviewed. Please Contact the Administrator: xiezy@cqupt."
 "edu.cn"
 
-#: blog/views.py:288
+#: blog/views.py:291
 msgid "该用户未注册"
 msgstr "The User is Not Registered"
 
-#: blog/views.py:330
+#: blog/views.py:333
 msgid "修改成功"
 msgstr "Success"
 
-#: blog/views.py:336
+#: blog/views.py:339
 msgid "旧密码输入错误"
 msgstr "Old Password is Wrong"
 
-#: blog/views.py:362
+#: blog/views.py:365
 msgid "用户信息不正确"
 msgstr "User Information is Incorrec"
 
-#: blog/views.py:369
+#: blog/views.py:372
 msgid "已通知管理员重置密码"
 msgstr "Success! The Administrator Has Been Notified to Reset the Password"
 
-#: blog/views.py:374
+#: blog/views.py:377
 msgid "用户不存在"
 msgstr "User Does Not Exist"
 

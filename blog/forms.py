@@ -115,6 +115,7 @@ class UserDetailForm(forms.ModelForm):
     patent = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>专利'))
     article = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>文章发表'))
     works = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>著作发表'))
+    introduction_en = forms.CharField(widget=forms.Textarea, required=False, label=mark_safe('<br/>英文简介'))
 
 class SearchForm(forms.Form):
     output = _(u"站内搜索")

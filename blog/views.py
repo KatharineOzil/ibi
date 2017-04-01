@@ -189,7 +189,7 @@ def user_detail(request):
         return_result.update({'user': user_detail})
         photo_url = str(user.photo)
         photo_url = photo_url.replace('blog/', '', 1)
-        f = UserDetailForm({'category': user.category, 'job_title': user.job_title, 'education': user.education, 'photo': user.photo, 'information': user.information, 'project': user.project, 'patent': user.patent, 'article': user.article, 'works': user.works})
+        f = UserDetailForm({'category': user.category, 'job_title': user.job_title, 'education': user.education, 'photo': user.photo, 'information': user.information, 'project': user.project, 'patent': user.patent, 'article': user.article, 'works': user.works, 'introduction_en': user.introduction_en})
         return_result.update({'form': f})
         return_result.update({'photo_url' : photo_url})
         return render(request, 'blog/user_detail.html', return_result)
@@ -204,7 +204,8 @@ def user_detail(request):
             patent = f.cleaned_data['patent']
             works = f.cleaned_data['works']
             article = f.cleaned_data['article']
-            user_update = UserProfile.objects.filter(email=email).update(category=category, job_title=job_title, education=education, information=information, project=project, patent=patent, works=works, article=article)
+            introduction_en = f.cleaned_data['introduction_en']
+            user_update = UserProfile.objects.filter(email=email).update(category=category, job_title=job_title, education=education, information=information, project=project, patent=patent, works=works, article=article, introduction_en=introduction_en)
 
             if request.FILES:
                 photo = request.FILES['photo']
