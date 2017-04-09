@@ -164,9 +164,10 @@ def search(request):
             result_ann = Announcement.objects.filter( Q(title__contains=search) )
             result_news = News.objects.filter( Q(title__contains=search) | Q(text__contains=search) | Q(name__contains=search) | Q(place__contains=search))
             result_tools = Tools.objects.filter( Q(title__contains=search) | Q(text__contains=search))
-            result_room = Lab.objects.filter( Q(name__contains=search) | Q(direction__contains=search))
-            result_user = UserProfile.objects.filter( Q(username__contains=search) | Q(information__contains=search) | Q(patent__contains=search) | Q(project__contains=search) | Q(works__contains=search) | Q(article__contains=search))
-            result = chain(result_user, result_ann, result_room, result_tools, result_news)
+            #result_room = Lab.objects.filter( Q(name__contains=search) | Q(direction__contains=search))
+            #result_user = UserProfile.objects.filter( Q(username__contains=search) | Q(information__contains=search) | Q(patent__contains=search) | Q(project__contains=search) | Q(works__contains=search) | Q(article__contains=search))
+            #result = chain(result_user, result_ann, result_room, result_tools, result_news)
+            result = chain(result_ann, result_tools, result_news)
             return_result.update({'form': f, 'result': result})
             return render(request, 'blog/search.html',return_result)
         else:
