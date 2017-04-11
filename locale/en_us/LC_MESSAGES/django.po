@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-01 10:52+0800\n"
+"POT-Creation-Date: 2017-04-11 21:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,8 +62,8 @@ msgid "创建时间"
 msgstr "Create Time"
 
 #: blog/templates/blog/announcement.html:31 blog/templates/blog/news.html:48
-#: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:36
-#: blog/templates/blog/tools.html.py:64
+#: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:39
+#: blog/templates/blog/tools.html:72
 msgid "暂无数据"
 msgstr "Not Data"
 
@@ -87,7 +87,7 @@ msgstr "Team"
 msgid "研究工具"
 msgstr "Research Tools"
 
-#: blog/templates/blog/base.html:73 blog/templates/blog/base.html.py:76
+#: blog/templates/blog/base.html:73 blog/templates/blog/base.html:76
 msgid "个人管理"
 msgstr "User"
 
@@ -103,12 +103,12 @@ msgstr "Change Password"
 msgid "注销"
 msgstr "Log Out"
 
-#: blog/templates/blog/base.html:98 blog/templates/blog/base.html.py:101
+#: blog/templates/blog/base.html:98 blog/templates/blog/base.html:101
 msgid "用户功能"
 msgstr "Account"
 
 #: blog/templates/blog/base.html:102 blog/templates/blog/login.html:8
-#: blog/templates/blog/login.html.py:29
+#: blog/templates/blog/login.html:29
 msgid "登录"
 msgstr "Log In"
 
@@ -175,7 +175,7 @@ msgstr "News"
 msgid "【最新讲座】"
 msgstr "【Report】"
 
-#: blog/templates/blog/index.html:35 blog/templates/blog/index.html.py:52
+#: blog/templates/blog/index.html:35 blog/templates/blog/index.html:52
 msgid "无"
 msgstr "Not Data"
 
@@ -244,11 +244,11 @@ msgid "获得专利"
 msgstr "Patent"
 
 #: blog/templates/blog/sci_news.html:22
-msgid "专利名称"
-msgstr "Title"
+msgid "专利获得情况"
+msgstr "Patent"
 
 #: blog/templates/blog/sci_news.html:23 blog/templates/blog/sci_news.html:52
-#: blog/templates/blog/sci_news.html:79
+#: blog/templates/blog/sci_news.html:80
 msgid "作者"
 msgstr "Author"
 
@@ -257,16 +257,16 @@ msgid "文章发表"
 msgstr "Article"
 
 #: blog/templates/blog/sci_news.html:51
-msgid "文章题目"
-msgstr "Title"
+msgid "文章发表情况/文章题目"
+msgstr "Article"
 
-#: blog/templates/blog/sci_news.html:71
+#: blog/templates/blog/sci_news.html:74
 msgid "著作发表"
 msgstr "Books"
 
-#: blog/templates/blog/sci_news.html:78
-msgid "著作题目"
-msgstr "Title"
+#: blog/templates/blog/sci_news.html:79
+msgid "著作发表情况/著作题目"
+msgstr "Books"
 
 #: blog/templates/blog/search.html:8
 msgid "搜索结果"
@@ -280,61 +280,70 @@ msgstr "Title"
 msgid "具体内容"
 msgstr "Detail"
 
-#: blog/templates/blog/team.html:24 blog/templates/blog/team.html.py:26
+#: blog/templates/blog/team.html:24 blog/templates/blog/team.html:26
 msgid "个人简介"
 msgstr "User Profile"
 
-#: blog/templates/blog/tools.html:25 blog/templates/blog/tools.html.py:53
+#: blog/templates/blog/tools.html:26 blog/templates/blog/tools.html:59
 msgid "附件下载"
 msgstr "Attachment"
 
-#: blog/views.py:227 blog/views.py:297 blog/views.py:345 blog/views.py:382
+#: blog/views.py:226 blog/views.py:296 blog/views.py:344 blog/views.py:381
 msgid "请填写信息"
 msgstr "All Fields Are Required"
 
-#: blog/views.py:243
+#: blog/views.py:242
 msgid "注册成功！请等待管理员审核"
 msgstr "Success! Registration Success! Wait for the Administrator to Review"
 
-#: blog/views.py:248
+#: blog/views.py:247
 msgid "该邮箱已被注册，有疑问请联系管理员"
 msgstr ""
 "The Mailbox Has Been Registered. Please Contact the Administrator: "
 "xiezy@cqupt.edu.cn"
 
-#: blog/views.py:279
+#: blog/views.py:278
 msgid "用户名或密码错误"
 msgstr "User Information is Incorrect"
 
-#: blog/views.py:285
+#: blog/views.py:284
 msgid "注册未被审核，请联系管理员"
 msgstr ""
 "Registration is Not Reviewed. Please Contact the Administrator: xiezy@cqupt."
 "edu.cn"
 
-#: blog/views.py:291
+#: blog/views.py:290
 msgid "该用户未注册"
 msgstr "The User is Not Registered"
 
-#: blog/views.py:333
+#: blog/views.py:332
 msgid "修改成功"
 msgstr "Success"
 
-#: blog/views.py:339
+#: blog/views.py:338
 msgid "旧密码输入错误"
 msgstr "Old Password is Wrong"
 
-#: blog/views.py:365
+#: blog/views.py:364
 msgid "用户信息不正确"
 msgstr "User Information is Incorrec"
 
-#: blog/views.py:372
+#: blog/views.py:371
 msgid "已通知管理员重置密码"
 msgstr "Success! The Administrator Has Been Notified to Reset the Password"
 
-#: blog/views.py:377
+#: blog/views.py:376
 msgid "用户不存在"
 msgstr "User Does Not Exist"
+
+#~ msgid "专利名称"
+#~ msgstr "Title"
+
+#~ msgid "文章题目"
+#~ msgstr "Title"
+
+#~ msgid "著作题目"
+#~ msgstr "Title"
 
 #~ msgid "English"
 #~ msgstr "中文"
