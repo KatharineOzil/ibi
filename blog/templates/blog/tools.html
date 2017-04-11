@@ -10,9 +10,10 @@
   <hr />
 </div>
 
- {% if tools %}
- {% if request.LANGUAGE_CODE == 'en' %}
-      {% for tools in tools %}
+{% if request.LANGUAGE_CODE == 'en' %}
+
+  {% if tools %}
+    {% for tools in tools %}
    <div class="am-g">
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
     <div class="am-panel am-panel-default">
@@ -26,8 +27,10 @@
     {% endif %}
   </div>
   </div>
+  </div>
+  </div>
     {% endfor %}
-    {% else %}
+  {% else %}
     <div class="am-g">
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
     <div class="am-panel am-panel-default">
@@ -39,8 +42,11 @@
     </div>
     </div>
     </div>
+    {% endif %}
 {% else %}
- {% for tools in tools %}
+
+  {% if tools %}
+   {% for tools in tools %}
    <div class="am-g">
     <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
     <div class="am-panel am-panel-default">
@@ -54,6 +60,8 @@
     {% endif %}
   </div>
   </div>
+  </div>
+  </div>
     {% endfor %}
     {% else %}
     <div class="am-g">
@@ -67,7 +75,7 @@
     </div>
     </div>
     </div>
+  {% endif %}
 {% endif %}
-    {% endif %}
 
 {% endblock %}

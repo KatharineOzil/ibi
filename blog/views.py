@@ -97,7 +97,7 @@ def direction(request):
     return_result.update({'direction': direction})
     for a in direction:
         c = a.user.all()
-        a.users = str(c).replace('UserProfile:','')
+        a.users = str(c).replace('UserProfile:','').replace('QuerySet','')
         a.users_pin = ""
         for b in c:
             a.users_pin += "<"+b.username_pin+">"
@@ -132,17 +132,15 @@ def tools(request):
     else:
         pass
 
-    try:
-        tools = Tools.objects.get()
-        return_result.update({'tools': tools})
-        for a in tools:
-            if a.attachment:
-                a.attachment = str(a.attachment).replace('blog/', '', 1)
-            else:
-                pass
-        return render(request, 'blog/tools.html', return_result)
-    except Tools.DoesNotExist:
-        return render(request, 'blog/tools.html', return_result)
+    tools = Tools.objects.all()
+    return_result.update({'tools': tools})
+    for a in tools:
+        if a.attachment:
+            a.attachment = str(a.attachment).replace('blog/', '', 1)
+        else:
+            pass
+    return render(request, 'blog/tools.html', return_result)
+    
 
 def search(request):
     return_result = {}

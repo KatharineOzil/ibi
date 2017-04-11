@@ -69,7 +69,6 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.core.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -86,7 +85,7 @@ WSGI_APPLICATION = 'ibi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ibi', 
+        'NAME': 'ibi_new', 
         'USER': 'root',
         'PASSWORD': '123qwe!@#',
         'HOST': 'localhost',

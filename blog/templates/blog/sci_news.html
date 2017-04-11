@@ -19,7 +19,7 @@
         <table class="am-table">
           <thead>
             <tr>
-                <th style="width: 85%">{% blocktrans %}专利名称{% endblocktrans%}</th>
+                <th style="width: 85%">{% blocktrans %}专利获得情况{% endblocktrans%}</th>
                 <th>{% blocktrans %}作者{% endblocktrans%} </th>
             </tr>
           </thead>
@@ -48,7 +48,7 @@
       <table class="am-table">
           <thead>
             <tr>
-                <th style="width: 85%">{% blocktrans %}文章题目{% endblocktrans%}</th>
+                <th style="width: 85%">{% blocktrans %}文章发表情况/文章题目{% endblocktrans%}</th>
                 <th>{% blocktrans %}作者{% endblocktrans%}</th>
             </tr>
           </thead>
@@ -66,16 +66,17 @@
 
       </div>
 <br/>
-        <div class="am-panel am-panel-default">
+
+      {% for user_result in user_result %}
+          {% if user_result.works %}
+          <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">{% blocktrans %}著作发表{% endblocktrans%}</h3>
         </div>
-      {% for user_result in user_result %}
-          {% if user_result.works %}
         <table class="am-table">
           <thead>
             <tr>
-                <th>{% blocktrans %}著作题目{% endblocktrans%}</th>
+                <th style="width: 85%">{% blocktrans %}著作发表情况/著作题目{% endblocktrans%}</th>
                 <th>{% blocktrans %}作者{% endblocktrans%} </th>
             </tr>
           </thead>
@@ -86,9 +87,10 @@
             </tr>
           </tbody>
         </table>
-           {% endif %}
-          {% endfor %}
+          
         </div>
+         {% endif %}
+          {% endfor %}
   </div>
 </div>
 
