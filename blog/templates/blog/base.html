@@ -62,21 +62,21 @@
 
           <div class="am-collapse am-topbar-collapse" id="collapse-head">
             <ul class="am-nav am-nav-pills am-topbar-nav" >
-              <li class="am-active"><a href="/{{lang_prefix}}"> {% blocktrans %}首页{% endblocktrans%}</a></li>
-              <li><a href="sci_news">{% blocktrans %}科研动态{% endblocktrans%}</a></li>
-              <li><a href="direction">{% blocktrans %}科研方向{% endblocktrans%}</a></li>
-              <li><a href="team">{% blocktrans %}科研队伍{% endblocktrans%}</a></li>
-              <li><a href="tools">{% blocktrans %}研究工具{% endblocktrans%}</a></li>
+              <li class="am-active"><a href="/{{lang_prefix}}"> {% trans "首页" %}</a></li>
+              <li><a href="sci_news">{% trans "科研动态" %}</a></li>
+              <li><a href="direction">{% trans "科研方向" %}</a></li>
+              <li><a href="team">{% trans "科研队伍" %}</a></li>
+              <li><a href="tools">{% trans "研究工具" %}</a></li>
           {% if username %}
                 <li class="am-dropdown " data-am-dropdown>
                   <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                  {% blocktrans %}个人管理{% endblocktrans%} <span class="am-icon-caret-down"></span>
+                  {% trans "个人管理" %} <span class="am-icon-caret-down"></span>
                   </a>
                   <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">{% blocktrans %}个人管理{% endblocktrans%}</li>
-                    <li><a href="user_detail"><span class="am-icon-info"></span> {% blocktrans %}修改个人资料{% endblocktrans%}</a></li>
-                    <li><a href="change_password"><span class="am-icon-pencil-square"></span> {% blocktrans %}修改密码{% endblocktrans%}</a></li>
-                    <li><a href="logout"><span class="am-icon-times"></span> {% blocktrans %}注销{% endblocktrans%}</a></li>
+                    <li class="am-dropdown-header">{% trans "个人管理" %}</li>
+                    <li><a href="user_detail"><span class="am-icon-info"></span> {% trans "修改个人资料" %}</a></li>
+                    <li><a href="change_password"><span class="am-icon-pencil-square"></span> {% trans "修改密码" %}</a></li>
+                    <li><a href="logout"><span class="am-icon-times"></span> {% trans "注销" %}</a></li>
                   </ul>
                 </li>
             </ul>
@@ -95,14 +95,14 @@
           {% else %}
                 <li class="am-dropdown" data-am-dropdown>
                   <a class="am-dropdown-toggle " data-am-dropdown-toggle href="javascript:;">
-                  {% blocktrans %}用户功能{% endblocktrans%} <span class="am-icon-caret-down"></span>
+                  {% trans "用户功能" %} <span class="am-icon-caret-down"></span>
                   </a>
                   <ul class="am-dropdown-content">
-                    <li class="am-dropdown-header">{% blocktrans %}用户功能{% endblocktrans%}</li>
-                    <li><a href="login"><span class="am-icon-user"></span> {% blocktrans %}登录{% endblocktrans%}</a></li>
-                    <li><a href="register"><span class="am-icon-pencil"></span> {% blocktrans %}注册{% endblocktrans%}</a></li>
-                    <li><a href="forget_password"><span class="am-icon-exclamation"></span>  {% blocktrans %}忘记密码{% endblocktrans%}</a></li>
-                    <li><a href="admin"><span class="am-icon-star"></span> {% blocktrans %}管理员登录{% endblocktrans%}</a></li>
+                    <li class="am-dropdown-header">{% trans "用户功能" %}</li>
+                    <li><a href="login"><span class="am-icon-user"></span> {% trans "登录" %}</a></li>
+                    <li><a href="register"><span class="am-icon-pencil"></span> {% trans "注册" %}</a></li>
+                    <li><a href="forget_password"><span class="am-icon-exclamation"></span>  {% trans "忘记密码" %}</a></li>
+                    <li><a href="admin"><span class="am-icon-star"></span> {% trans "管理员登录" %}</a></li>
                   </ul>
                 </li>
             </ul>

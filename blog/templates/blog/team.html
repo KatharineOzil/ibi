@@ -4,7 +4,7 @@
 {% block content %}
     <br/>  <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-users am-icon-xs"></i> {% blocktrans %}科研队伍{% endblocktrans%}</h1>
+    <h1><i class="am-icon-users am-icon-xs"></i> {% trans "科研队伍" %}</h1>
   </div>
   <hr />
 </div>
@@ -21,9 +21,9 @@
                 <td rowspan="5" class="am-text-middle"><img class="am-lg-4" src="{{ STATIC_URL }}{{ team.photo }}" width="200" height="250"/></td>
                 <td><div class="am-lg-8">
             {% if request.LANGUAGE_CODE == 'en' and team.introduction_en %}
-                {% blocktrans %}个人简介{% endblocktrans%}：{{team.introduction_en}}<br/>
+                {% trans "个人简介" %}：{{team.introduction_en}}<br/>
             {% else %}
-                {% blocktrans %}个人简介{% endblocktrans%}：{{team.information}}<br/>
+                {% trans "个人简介" %}：{{team.information}}<br/>
                 {{team.project}}<br/>
                 {{team.patent}}<br/>
                 {{team.article}}<br/>{{team.works}}<br/>

@@ -5,7 +5,7 @@
 	<br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-search am-icon-xs"></i> {% blocktrans %}搜索结果{% endblocktrans%}</h1>
+    <h1><i class="am-icon-search am-icon-xs"></i> {% trans "搜索结果" %}</h1>
   </div>
   <hr />
 </div>
@@ -15,8 +15,8 @@
 	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
 	<thead>
         <tr>
-            <th>{% blocktrans %}标题{% endblocktrans%}</th>
-            <th>{% blocktrans %}具体内容{% endblocktrans%}</th>
+            <th>{% trans "标题" %}</th>
+            <th>{% trans "具体内容" %}</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
       {% else %}
 
         <tr>
-            <td>{% blocktrans %}暂无数据{% endblocktrans%}</td>
+            <td>{% trans "暂无数据" %}</td>
         </tr>
 
       {% endif %}

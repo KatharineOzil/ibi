@@ -97,10 +97,10 @@ def direction(request):
     return_result.update({'direction': direction})
     for a in direction:
         c = a.user.all()
-        a.users = str(c).replace('UserProfile:','').replace('QuerySet','')
+        a.users = str(c).replace('UserProfile:','').replace('QuerySet','').replace('<','').replace('>','').replace('[', '').replace(']','')
         a.users_pin = ""
         for b in c:
-            a.users_pin += "<"+b.username_pin+">"
+            a.users_pin += b.username_pin+" . "
 
     return render(request, 'blog/direction.html', return_result)
 

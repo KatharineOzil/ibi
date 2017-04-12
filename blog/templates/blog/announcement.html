@@ -5,7 +5,7 @@
 	<br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-bell-o am-icon-xs"></i> {% blocktrans %}公告通知{% endblocktrans%}</h1>
+    <h1><i class="am-icon-bell-o am-icon-xs"></i> {% trans "公告通知" %}</h1>
   </div>
   <hr />
 </div>
@@ -14,21 +14,21 @@
 	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
 	<thead>
         <tr>
-            <th>{% blocktrans %}通知{% endblocktrans%}</th>
-            <th>{% blocktrans %}创建时间{% endblocktrans%}</th>
+            <th>{% trans "通知" %}</th>
+            <th>{% trans "创建时间" %}</th>
         </tr>
     </thead>
     <tbody>
 	  {% if announcement %}
 		{% for announcement in announcement %}
         <tr>
-            <td>{{announcement.text}}</td>
+            <td>{{announcement.title}}</td>
             <td>{{announcement.created_date}}</td>
         </tr>
       	{% endfor %}
       {% else %}
         <tr>
-            <td>{% blocktrans %}暂无数据{% endblocktrans%}</td>
+            <td>{% trans "暂无数据" %}</td>
             <td></td>
         </tr>
       {% endif %}
