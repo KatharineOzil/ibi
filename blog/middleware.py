@@ -8,21 +8,23 @@ class LocaleMiddleware(object):
 
 	def process_request(self, request):
 		language = request.GET.get('lang')
-		
-		if request.LANGUAGE_CODE == 'en' and language == None:
-			language = 'en'
-		elif language not in ('en', 'zh-hans'):
-			language = 'zh-hans'
-
+		if language is None:
+			language = request.COOKIES.get('django_language')
+		if language is not None:
+			if not language == 'en':
+				language = 'zh-Hans'
+				
 		translation.activate(language)
 		request.LANGUAGE_CODE = translation.get_language()
 
 
 	def process_response(self, request, response):
-		if settings.LANGUAGE_COOKIE_NAME not in response.cookies:
-			response.set_cookie(settings.LANGUAGE_COOKIE_NAME,translation.get_language())
 		patch_vary_headers(response, ('Accept-Language',))
 		if 'Content-Language' not in response:
 			response['Content-Language'] = translation.get_language()
+
+		if request.GET.get('lang') is not None:
+			response.set_cookie(settings.LANGUAGE_COOKIE_NAME, request.LANGUAGE_CODE)
+
 		translation.deactivate()
 		return response
