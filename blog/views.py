@@ -114,7 +114,7 @@ def team(request):
     else:
         pass
 
-    team = UserProfile.objects.all()
+    team = UserProfile.objects.filter(is_staff=1)
     return_result.update({'team': team})
     b = ''
     for a in team:
