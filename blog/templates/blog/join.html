@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-heart am-icon-xs"></i> {% trans "加入我们" %}</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g am-container" style="padding:30px">
+<div class="am-u-lg-6">
+<img class="am-circle am-img-thumbnail" src="static/assets/i/landscape.jpg" width=100%/></div>
+<div class="am-u-lg-6" style="padding:21px">
+重庆邮电大学生物信息学研究所在重庆邮电大学生物信息学院生物医学工程专业面向全国招收硕士研究生。我们拥有朝气蓬勃的团队，优美舒适的工作环境，团结向上的科研氛围，欢迎报考我们，加入重邮生物信息大家庭。每年具体招生名额和招生方向请查阅<a href="http://yjs.cqupt.edu.cn/ejlby.jsp?urltype=tree.TreeTempUrl&wbtreeid=1006">重庆邮电大学研究生招生简章。</a>
+</div>
+</div>
+
+<div class="am-g am-container">
+
+    <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h2 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#in'}">在读研究生
+                </h2>
+            </div>
+            <div id="in" class="am-panel-collapse am-collapse am-in">
+              <div class="am-panel-bd">
+
+              {% for k,v in a.items %}
+                {% if v %}
+                {{ k }}: 
+                {% for i in v %}{{ i }} / {% endfor %}
+                <br>
+                {% endif %}
+              {% endfor %}
+
+          </div>
+        </div>
+    </div>
+
+     <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h2 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#out'}">已毕业研究生
+                </h2>
+            </div>
+            <div id="out" class="am-panel-collapse am-collapse am-in">
+              <div class="am-panel-bd">
+              {% for k,v in b.items %}
+                {% if v %}
+                {{ k }}: 
+                {% for i in v %}{{ i }} / {% endfor %}
+                <br>
+                {% endif %}
+              {% endfor %}
+
+              </div>
+            </div>
+    </div>
+
+</div>
+
+{% endblock %}

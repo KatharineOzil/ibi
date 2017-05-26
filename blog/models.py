@@ -9,6 +9,17 @@ from django.contrib.auth.hashers import make_password, check_password
 reload(sys)
 sys.setdefaultencoding('utf-8')
 # Create your models here.
+class Graduate(models.Model):
+    class Meta:
+        verbose_name = '研究生'
+        verbose_name_plural = '研究生'
+    name = models.CharField(verbose_name="学生姓名", max_length=100)
+    reg_year = models.IntegerField(verbose_name="入学时间")
+    status = models.BooleanField(default=False, verbose_name="是否毕业")
+
+    def __str__(self):
+        return self.name
+
 
 class Announcement(models.Model):
     class Meta:

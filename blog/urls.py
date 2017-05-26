@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'search$', views.search, name='search',),
     url(r'news$', views.news, name='news',),
     url(r'announcement$', views.announcement, name='announcement',),
+    url(r'join$', views.join, name='join',),
     #url(r'', include(frontend_urls)),
-    url(r'', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
 ]

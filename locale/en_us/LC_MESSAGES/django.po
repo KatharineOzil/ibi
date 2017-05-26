@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-26 17:13+0800\n"
+"POT-Creation-Date: 2017-05-26 22:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "Password"
 
 #: blog/forms.py:17
 msgid "重复密码"
-msgstr "Confirm Password"
+msgstr "Confirm Psaaword"
 
 #: blog/forms.py:61
 msgid "旧密码"
@@ -65,11 +65,11 @@ msgstr "Create Time"
 #: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:39
 #: blog/templates/blog/tools.html:72
 msgid "暂无数据"
-msgstr "Not Data"
+msgstr "No Data"
 
 #: blog/templates/blog/base.html:65
 msgid "首页"
-msgstr "Home"
+msgstr "No Data"
 
 #: blog/templates/blog/base.html:66 blog/templates/blog/sci_news.html:7
 msgid "科研动态"
@@ -80,50 +80,53 @@ msgstr "News"
 msgid "科研方向"
 msgstr "Section"
 
-#: blog/templates/blog/base.html:68 blog/templates/blog/team.html:7
-msgid "科研队伍"
+#: blog/templates/blog/base.html:68
+msgid "人员队伍"
 msgstr "Team"
 
 #: blog/templates/blog/base.html:69 blog/templates/blog/tools.html:8
 msgid "资源工具"
 msgstr "Tools"
 
-#: blog/templates/blog/base.html:73 blog/templates/blog/base.html:76
+#: blog/templates/blog/base.html:70 blog/templates/blog/join.html:8
+msgid "加入我们"
+msgstr "Join Us"
+
+#: blog/templates/blog/base.html:74 blog/templates/blog/base.html:77
 msgid "个人管理"
 msgstr "User"
 
-#: blog/templates/blog/base.html:77
+#: blog/templates/blog/base.html:78
 msgid "修改个人资料"
 msgstr "Personal Settings"
 
-#: blog/templates/blog/base.html:78 blog/templates/blog/change_password.html:8
+#: blog/templates/blog/base.html:79 blog/templates/blog/change_password.html:8
 msgid "修改密码"
 msgstr "Change Password"
 
-#: blog/templates/blog/base.html:79
+#: blog/templates/blog/base.html:80
 msgid "注销"
 msgstr "Log Out"
 
-#: blog/templates/blog/base.html:98 blog/templates/blog/base.html:101
+#: blog/templates/blog/base.html:99 blog/templates/blog/base.html:102
 msgid "用户功能"
 msgstr "Account"
 
-#: blog/templates/blog/base.html:102 blog/templates/blog/login.html:8
+#: blog/templates/blog/base.html:103 blog/templates/blog/login.html:8
 #: blog/templates/blog/login.html:29
 msgid "登录"
 msgstr "Log In"
 
-#: blog/templates/blog/base.html:103 blog/templates/blog/register.html:8
+#: blog/templates/blog/base.html:104 blog/templates/blog/register.html:8
 #: blog/templates/blog/register.html:28
 msgid "注册"
 msgstr "Register"
 
-#: blog/templates/blog/base.html:104
-#: blog/templates/blog/forget_password.html:8
+#: blog/templates/blog/base.html:105 blog/templates/blog/forget_password.html:8
 msgid "忘记密码"
 msgstr "Forget Password"
 
-#: blog/templates/blog/base.html:105
+#: blog/templates/blog/base.html:106
 msgid "管理员登录"
 msgstr "Admin"
 
@@ -143,24 +146,24 @@ msgstr "Institute of BioInformatics"
 #: blog/templates/blog/index.html:17
 msgid ""
 "重庆邮电大学生物信息学研究所位于重庆邮电大学生物信息学院1号楼4楼，周边绿树成"
-"荫，风景秀丽。<br/>研究所成立于2010年3月，隶属于生物信息学院，其前身是隶属于"
-"分子生物学重点实验室的生物信息研究所。<br/>新成立的生物信息学研究所包括分子进"
-"化研究室、计算机辅助药物设计研究室、生物医学数据挖掘与可视化研究室和生物信息"
-"学算法研究室。<br/>研究队伍包括教授3名，副教授3名，讲师7名。其中具有博士学位7"
-"名，在读博士2名，硕士4名。<br/>主要研究方向为功能基因组学与分子进化、三峡库区"
-"生物多样性、DNA光损伤与修复模拟、基因表达调控网络研究、分子动力学模拟研究、进"
-"化发育生物学（Evo-Devo)、生物信息学算法等。"
+"荫，风景秀丽。研究所成立于2010年3月，隶属于生物信息学院，其前身是隶属于分子生"
+"物学重点实验室的生物信息研究所。新成立的生物信息学研究所包括分子进化研究室、"
+"计算机辅助药物设计研究室、生物医学数据挖掘与可视化研究室和生物信息学算法研究"
+"室。<br/>研究队伍包括教授3名，副教授3名，讲师7名。其中具有博士学位7名，在读博"
+"士2名，硕士4名。主要研究方向为功能基因组学与分子进化、三峡库区生物多样性、DNA"
+"光损伤与修复模拟、基因表达调控网络研究、分子动力学模拟研究、进化发育生物学"
+"（Evo-Devo)、生物信息学算法等。"
 msgstr ""
 "The new Institute of BioInformatics was established in March, 2010 and "
 "attached to College of Bioinformation, Chongqing University of Post and "
-"Telecommunication. Its precursor is Institute of Bioinformation.<br/>Now it "
+"Telecommunication. Its precursor is Institute of Bioinformation. Now it "
 "contains four sections: Bioinformatics, Genomics, Molocular Evolution, and "
-"Computational Chemistry. <br/>Its research team includes five professors and "
+"Computational Chemistry. Its research team includes five professors and "
 "associated professors, two lectures and one tutor. Six of them have doctor's "
 "degreee, one is doctorial student and the other two have master's degree. "
-"<br/>Our research interests include molecular evolution, comparative "
-"genomics, Evolutionary Developmental Biology (Evo-Devo), drug molecular "
-"design and computational chemistry."
+"Our research interests include molecular evolution, comparative genomics, "
+"Evolutionary Developmental Biology (Evo-Devo), drug molecular design and "
+"computational chemistry."
 
 #: blog/templates/blog/index.html:25 blog/templates/blog/news.html:8
 msgid "最新动态"
@@ -172,7 +175,7 @@ msgstr "【Report】"
 
 #: blog/templates/blog/index.html:34 blog/templates/blog/index.html:51
 msgid "无"
-msgstr "Not Data"
+msgstr "No Data"
 
 #: blog/templates/blog/index.html:59
 msgid "相关链接"
@@ -223,10 +226,8 @@ msgid "内容简介"
 msgstr "Introduction"
 
 #: blog/templates/blog/news.html:32
-#, fuzzy
-#| msgid "主讲人"
 msgid "主持人"
-msgstr "Presenter"
+msgstr "Host"
 
 #: blog/templates/blog/news.html:35
 msgid "主办单位"
@@ -267,7 +268,7 @@ msgstr "Books"
 
 #: blog/templates/blog/search.html:8
 msgid "搜索结果"
-msgstr "Search Result"
+msgstr "Search Results"
 
 #: blog/templates/blog/search.html:18
 msgid "标题"
@@ -277,6 +278,10 @@ msgstr "Title"
 msgid "具体内容"
 msgstr "Detail"
 
+#: blog/templates/blog/team.html:7
+msgid "科研队伍"
+msgstr "Team"
+
 #: blog/templates/blog/team.html:24 blog/templates/blog/team.html:26
 msgid "个人简介"
 msgstr "User Profile"
@@ -285,51 +290,51 @@ msgstr "User Profile"
 msgid "附件下载"
 msgstr "Attachment"
 
-#: blog/views.py:226 blog/views.py:296 blog/views.py:344 blog/views.py:381
+#: blog/views.py:227 blog/views.py:297 blog/views.py:345 blog/views.py:382
 msgid "请填写信息"
 msgstr "All Fields Are Required"
 
-#: blog/views.py:242
+#: blog/views.py:243
 msgid "注册成功！请等待管理员审核"
-msgstr "Success! Registration Success! Wait for the Administrator to Review"
+msgstr "Registration Success! Wait for the Administrator to Review"
 
-#: blog/views.py:247
+#: blog/views.py:248
 msgid "该邮箱已被注册，有疑问请联系管理员"
 msgstr ""
 "The Mailbox Has Been Registered. Please Contact the Administrator: "
 "xiezy@cqupt.edu.cn"
 
-#: blog/views.py:278
+#: blog/views.py:279
 msgid "用户名或密码错误"
 msgstr "User Information is Incorrect"
 
-#: blog/views.py:284
+#: blog/views.py:285
 msgid "注册未被审核，请联系管理员"
 msgstr ""
 "Registration is Not Reviewed. Please Contact the Administrator: xiezy@cqupt."
 "edu.cn"
 
-#: blog/views.py:290
+#: blog/views.py:291
 msgid "该用户未注册"
 msgstr "The User is Not Registered"
 
-#: blog/views.py:332
+#: blog/views.py:333
 msgid "修改成功"
 msgstr "Success"
 
-#: blog/views.py:338
+#: blog/views.py:339
 msgid "旧密码输入错误"
 msgstr "Old Password is Wrong"
 
-#: blog/views.py:364
+#: blog/views.py:365
 msgid "用户信息不正确"
 msgstr "User Information is Incorrect"
 
-#: blog/views.py:371
+#: blog/views.py:372
 msgid "已通知管理员重置密码"
 msgstr "Success! The Administrator Has Been Notified to Reset the Password"
 
-#: blog/views.py:376
+#: blog/views.py:377
 msgid "用户不存在"
 msgstr "User Does Not Exist"
 
@@ -340,6 +345,3 @@ msgstr ""
 #: ibi/settings.py:139
 msgid "English"
 msgstr "中文"
-
-#~ msgid "研究工具"
-#~ msgstr "Tools"

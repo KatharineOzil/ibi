@@ -5,6 +5,7 @@ from .models import Lab
 from .models import News
 from .models import Announcement
 from .models import Tools
+from .models import Graduate
 from .forms import UserRegisterForm, UserLoginForm, UserChangePasswordForm, UserDetailForm, SearchForm, ForgetPasswordForm
 from django.contrib.auth.decorators import permission_required
 from django.http import HttpResponse
@@ -382,4 +383,21 @@ def forget_password(request):
             message = {'message': output}
             data = json.dumps(message,separators=(',',':'))                
             return JsonResponse(data, safe=False)
+
+def join(request):
+    a = {}
+    b = {}
+    graduate = Graduate.objects.all()
+    for g in graduate:
+        a[g.reg_year]=[]
+        b[g.reg_year]=[]
+
+    for g in graduate:
+        if g.status == 0:
+            a[g.reg_year].append(g.name)
+        else:
+            b[g.reg_year].append(g.name)
+
+    print(a)
+    return render(request, 'blog/join.html', {'a':a, 'b':b})
 
