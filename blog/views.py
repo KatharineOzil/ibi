@@ -266,14 +266,14 @@ def user_login(request):
             if user_exist:
                 user = UserProfile.objects.get(email=email)
                 if user.is_staff:
-                    request.session['username'] = user.username
-                    request.session['email'] = email
-                    request.session['username_pin'] = user.username_pin
                     check = check_password(password, user.password)
                     if check:
-                        message = {}
-                        data = json.dumps(message,separators=(',',':'))                
-                        return JsonResponse(data, safe=False)
+                        request.session['username'] = user.username
+                        request.session['email'] = email
+                        request.session['username_pin'] = user.username_pin
+			message = {}
+			data = json.dumps(message, separators=(',',':'))
+			return JsonResponse(data, safe=False)
                     else:
                         output = _("用户名或密码错误")
                         message = {'message': output}

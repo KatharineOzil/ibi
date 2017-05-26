@@ -27,7 +27,7 @@ SECRET_KEY = '-h)4rfgr@+rdaudynn&aw75(dj)0)!6jy$!9xig93abl2-9w*o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '*']
 
 
 # Application definition
@@ -71,8 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n',
-            ],
+            	#'django.template.context_processors.i18n',
+	    ],
         },
     },
 ]
@@ -87,21 +87,19 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ibi_new', 
-        'USER': 'root',
-        'PASSWORD': '123qwe!@#',
+        'USER': 'wangyx',
+        'PASSWORD': 'wangyongxin18',
         'HOST': 'localhost',
         'PORT': '3306'
     }
 }
 
-'''
-DATABASES = {
+DATABASES_ = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'ibi.db3', 
     }
 }
-'''
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -135,9 +133,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+from django.utils.translation import ugettext_lazy as _
 LANGUAGES = (
-    ('zh', ('China')),
-    ('en', ('English')),
+    ('zh', _('China')),
+    ('en', _('English')),
 )
 
 LOCALE_PATHS = (

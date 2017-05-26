@@ -5,7 +5,7 @@
 <br/>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="am-icon-cogs am-icon-xs"></i> {% trans "研究工具" %}</h1>
+    <h1><i class="detail-h3 am-icon-cogs am-icon-xs"></i> {% trans "资源工具" %}</h1>
   </div>
   <hr />
 </div>
@@ -14,8 +14,8 @@
 
   {% if tools %}
     {% for tools in tools %}
-   <div class="am-g">
-    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+   <div class="am-g am-container">
+    <div class="am-u-sm-centered">
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">{{tools.title_en}}</h3>
@@ -31,8 +31,8 @@
   </div>
     {% endfor %}
   {% else %}
-    <div class="am-g">
-    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-g am-container">
+    <div class="am-u-sm-centered">
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">
@@ -47,8 +47,8 @@
 
   {% if tools %}
    {% for tools in tools %}
-   <div class="am-g">
-    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+   <div class="am-g am-container">
+    <div class=" am-u-sm-centered">
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">{{tools.title}}</h3>
@@ -64,8 +64,8 @@
   </div>
     {% endfor %}
     {% else %}
-    <div class="am-g">
-    <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-g am-container">
+    <div class="am-u-sm-centered">
     <div class="am-panel am-panel-default">
         <div class="am-panel-hd">
           <h3 class="am-panel-title">

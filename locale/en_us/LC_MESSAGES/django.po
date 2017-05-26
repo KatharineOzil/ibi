@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-12 02:12+0800\n"
+"POT-Creation-Date: 2017-05-26 17:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr "Home"
 
 #: blog/templates/blog/base.html:66 blog/templates/blog/sci_news.html:7
 msgid "科研动态"
-msgstr "Research News"
+msgstr "News"
 
 #: blog/templates/blog/base.html:67 blog/templates/blog/direction.html:8
 #: blog/templates/blog/direction.html:25 blog/templates/blog/direction.html:52
@@ -85,8 +85,8 @@ msgid "科研队伍"
 msgstr "Team"
 
 #: blog/templates/blog/base.html:69 blog/templates/blog/tools.html:8
-msgid "研究工具"
-msgstr "Research Tools"
+msgid "资源工具"
+msgstr "Tools"
 
 #: blog/templates/blog/base.html:73 blog/templates/blog/base.html:76
 msgid "个人管理"
@@ -118,7 +118,8 @@ msgstr "Log In"
 msgid "注册"
 msgstr "Register"
 
-#: blog/templates/blog/base.html:104 blog/templates/blog/forget_password.html:8
+#: blog/templates/blog/base.html:104
+#: blog/templates/blog/forget_password.html:8
 msgid "忘记密码"
 msgstr "Forget Password"
 
@@ -221,6 +222,12 @@ msgstr "Presenter"
 msgid "内容简介"
 msgstr "Introduction"
 
+#: blog/templates/blog/news.html:32
+#, fuzzy
+#| msgid "主讲人"
+msgid "主持人"
+msgstr "Presenter"
+
 #: blog/templates/blog/news.html:35
 msgid "主办单位"
 msgstr "Organizer"
@@ -316,7 +323,7 @@ msgstr "Old Password is Wrong"
 
 #: blog/views.py:364
 msgid "用户信息不正确"
-msgstr "User Information is Incorrec"
+msgstr "User Information is Incorrect"
 
 #: blog/views.py:371
 msgid "已通知管理员重置密码"
@@ -325,3 +332,14 @@ msgstr "Success! The Administrator Has Been Notified to Reset the Password"
 #: blog/views.py:376
 msgid "用户不存在"
 msgstr "User Does Not Exist"
+
+#: ibi/settings.py:138
+msgid "China"
+msgstr ""
+
+#: ibi/settings.py:139
+msgid "English"
+msgstr "中文"
+
+#~ msgid "研究工具"
+#~ msgstr "Tools"

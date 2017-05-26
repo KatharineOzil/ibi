@@ -104,6 +104,11 @@
     }
 
    .am-container {
-      width: 980px !important;
       max-width: none;
+      width: 66.666667%;
+    }
+
+    .am-u-lg-4 {
+      width: 33.33333%;
+      padding-left: 100px;
     }

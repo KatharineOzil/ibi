@@ -9,11 +9,13 @@ class LocaleMiddleware(object):
 	def process_request(self, request):
 		language = request.GET.get('lang')
 		if language is None:
-			language = request.COOKIES.get('django_language')
+		    language = request.COOKIES.get('django_language')
+
 		if language is not None:
-			if not language == 'en':
-				language = 'zh-Hans'
-				
+		    if not language == 'en':
+		        language = 'zh-Hans'
+                else:
+                    language = 'zh-Hans'
 		translation.activate(language)
 		request.LANGUAGE_CODE = translation.get_language()
 

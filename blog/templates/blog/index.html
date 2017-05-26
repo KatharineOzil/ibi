@@ -20,27 +20,27 @@
       <div class="am-g">
         <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb" id='news'>
 
-          <h3 class="detail-h3">
+          <h2 class="detail-h3">
             <i class="am-icon-newspaper-o am-icon-sm"></i>
             <a href='news'>{% trans "最新动态" %}</a>
-          </h3>
+          </h2>
 
           <p class="detail-p">
       {% if news %}
       {% for news in news %}
-        <p><strong>{% trans "【最新讲座】" %}{{news.title}}（{{news.lec_time}}、{{news.place}}）</strong></p>
+        <p>{% trans "【最新讲座】" %}{{news.title}}（{{news.lec_time}}、{{news.place}}</p>
       {% endfor %}
       {% else %}
       <p>{% trans "无" %}</p>
       {% endif %}
           </p>
         </div>
-        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb" id='announcement'>
-          <h3 class="detail-h3">
+        <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb" id='announcement'>
+          <h2 class="detail-h3">
             <i class="am-icon-bell-o am-icon-sm"></i>
                         <a href='announcement'>{% trans "公告通知" %}</a>
 
-          </h3>
+          </h2>
 
           <p class="detail-p">
           {% if announcement %}
@@ -54,10 +54,10 @@
         </div>
       
         <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb" id='link'>
-          <h3 class="detail-h3">
+          <h2 class="detail-h3">
             <i class="am-icon-link am-icon-sm"></i>
             {% trans "相关链接" %}
-          </h3>
+          </h2>
 
           <p class="detail-p">
         <a href="http://www.cqupt.edu.cn" target=_blank>{% trans "重庆邮电大学" %}</a><br/>
@@ -69,7 +69,7 @@
           </p>
         </div>
       </div>
-
+<center>
      <div id='search'>
       {% if form.subject.errors %}
       <ol>
@@ -83,7 +83,7 @@
         {{ form }}
       <input type="submit" value="{% trans "搜索" %}" class="am-btn am-btn-primary am-btn-ssm"/>
       </form>
-    </div>
+    </div></center>
   </div>
 </div>
 </div>
