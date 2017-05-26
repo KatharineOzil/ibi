@@ -1,0 +1,63 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<br>
+<div class="header">
+  <div class="am-g">
+    <h1>{% trans "登录" %}</h1>
+  </div>
+  <hr />
+</div>
+
+
+<div class="am-g am-container">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+   
+        {% if form.subject.errors %}
+        <ol>
+        {% for error in form.subject.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+        </ol>
+        {% endif %}
+        <form action="{% url 'user_login' %}" method="post"  class="am-form" id="tf">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <div class="am-cf" id="fp">
+                <input type="button" value="{% trans "登录" %}" id="fp_result" class="am-btn am-btn-primary am-btn-sm am-center" onclick="test()"/>   
+            </div>
+        </form>
+     <hr>
+   </div>
+</div>
+<script>
+
+function test()
+{
+  $('#fp_result').popover('close');
+    $("#tf").ajaxSubmit({
+       success: function (b) {
+        eval("var b = " + b);
+        console.log(b.message);
+        if(b.message){
+          $(function() {
+            $('#fp_result').popover('setContent', b.message);
+            $('#fp_result').popover('open');
+          });
+        }else{
+          location.href="/"
+        }
+      }
+    });
+    return false;
+}
+
+
+</script>
+<br>
+<br>
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-bell-o am-icon-xs"></i> {% trans "公告通知" %}</h1>
+  </div>
+  <hr />
+</div>
+<div class="am-g am-container">
+<div class="am-u-sm-centered">
+	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+	<thead>
+        <tr>
+            <th>{% trans "通知" %}</th>
+            <th>{% trans "创建时间" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+	  {% if announcement %}
+		{% for announcement in announcement %}
+        <tr>
+            <td>{{announcement.title}}</td>
+            <td>{{announcement.created_date}}</td>
+        </tr>
+      	{% endfor %}
+      {% else %}
+        <tr>
+            <td>{% trans "暂无数据" %}</td>
+            <td></td>
+        </tr>
+      {% endif %}
+     </tbody>
+    </table>
+</div>
+</div>
+	
+
+{% endblock %}

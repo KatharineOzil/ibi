@@ -1,0 +1,81 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<br/>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-cogs am-icon-xs"></i> {% trans "资源工具" %}</h1>
+  </div>
+  <hr />
+</div>
+
+{% if request.LANGUAGE_CODE == 'en' %}
+
+  {% if tools %}
+    {% for tools in tools %}
+   <div class="am-g am-container">
+    <div class="am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{{tools.title_en}}</h3>
+        </div>
+  <div class="am-panel-bd">
+    <p>{{tools.text_en}}<br/>
+    {% if attachment %}
+    <a href ="{{ STATIC_URL }}{{ attachment }}" download>{% trans "附件下载" %}</a></p>
+    {% endif %}
+  </div>
+  </div>
+  </div>
+  </div>
+    {% endfor %}
+  {% else %}
+    <div class="am-g am-container">
+    <div class="am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">
+        {% trans "暂无数据" %}</h3>
+        <br>
+        </div>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+{% else %}
+
+  {% if tools %}
+   {% for tools in tools %}
+   <div class="am-g am-container">
+    <div class=" am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{{tools.title}}</h3>
+        </div>
+  <div class="am-panel-bd">
+    <p>{{tools.text}}<br/>
+    {% if attachment %}
+    <a href ="{{ STATIC_URL }}{{ attachment }}" download>{% trans "附件下载" %}</a></p>
+    {% endif %}
+  </div>
+  </div>
+  </div>
+  </div>
+    {% endfor %}
+    {% else %}
+    <div class="am-g am-container">
+    <div class="am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">
+        {% trans "暂无数据" %}</h3>
+        <br>
+        </div>
+    </div>
+    </div>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% endblock %}

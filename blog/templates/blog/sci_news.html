@@ -1,0 +1,97 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<br/> <div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-archive am-icon-xs"></i> {% trans "科研动态" %}</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g am-container">
+    <div class="am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% trans "获得专利" %}</h3>
+        </div>
+
+        <table class="am-table">
+          <thead>
+            <tr>
+                <th style="width: 85%">{% trans "专利获得情况" %}</th>
+                <th>{% trans "作者" %} </th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for user_result in user_result %}
+        {% if user_result.patent %}
+            <tr>
+                <td>{{user_result.patent}}</td>
+                <td>{{user_result.username}}</td>
+                
+            </tr>
+          </tbody>
+                  {% endif %}
+      {% endfor %}
+        </table>
+
+      </div>
+<br/>
+
+
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% trans "文章发表" %}</h3>
+        </div>
+
+      <table class="am-table">
+          <thead>
+            <tr>
+                <th style="width: 85%">{% trans "文章发表情况/文章题目" %}</th>
+                <th>{% trans "作者" %}</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for user_result in user_result %}
+        {% if user_result.article %}
+            <tr>
+                <td>{{user_result.article}}</td>
+                <td>{{user_result.username}}</td>
+            </tr>
+                    {% endif %}
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+<br/>
+
+      {% for user_result in user_result %}
+          {% if user_result.works %}
+          <div class="am-panel am-panel-default">
+        <div class="am-panel-hd">
+          <h3 class="am-panel-title">{% trans "著作发表" %}</h3>
+        </div>
+        <table class="am-table">
+          <thead>
+            <tr>
+                <th style="width: 85%">{% trans "著作发表情况/著作题目" %}</th>
+                <th>{% trans "作者" %} </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>{{user_result.works}}</td>
+                <td>{{user_result.username}}</td>
+            </tr>
+          </tbody>
+        </table>
+          
+        </div>
+         {% endif %}
+          {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

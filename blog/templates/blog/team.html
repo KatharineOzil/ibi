@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <br/>  <div class="header" >
+  <div class="am-g ">
+    <h1><i class="detail-h3 am-icon-users am-icon-xs"></i> {% trans "科研队伍" %}</h1>
+  </div>
+  <hr />
+</div>
+    <div class="am-g am-container">
+    <div class=" am-u-sm-centered">
+        {% for team in team %}
+        <div class="am-panel am-panel-default">
+            <div class="am-panel-hd">
+                <h2 class="am-panel-title">{{team.username}}({{team.category}}、{{team.job_title}}、{{team.education}})</h2>
+            </div>
+            <div style="background: #FFF; padding: 1.5em">
+            <table class="am-table am-table-bordered am-table-centered">
+                 <tr>
+                <td rowspan="5" class="am-text-middle"><img class="am-lg-4" src="{{ STATIC_URL }}{{ team.photo }}" width="200" height="250"/></td>
+                <td><div class="am-lg-8">
+            {% if request.LANGUAGE_CODE == 'en' and team.introduction_en %}
+                {% trans "个人简介" %}：{{team.introduction_en}}<br/>
+            {% else %}
+                {% trans "个人简介" %}：{{team.information}}<br/>
+                {{team.project}}<br/>
+                {{team.patent}}<br/>
+                {{team.article}}<br/>{{team.works}}<br/>
+            {% endif %}
+                </div></td>
+            </table>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}

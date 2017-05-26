@@ -1,0 +1,59 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-newspaper-o am-icon-xs"></i> {% trans "最新动态" %}</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g">
+
+{% if news %}
+{% for news in news %}
+<div class="am-panel-group " id="accordion">
+  <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+    <div class="am-panel-hd">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#news-{{news.id}}'}">
+        {{news.title}}（{% trans "地点" %}：{{news.place}}、{% trans "时间" %}：{{news.lec_time}}）
+      </h4>
+    </div>
+    <div id="news-{{news.id}}" class="am-panel-collapse am-collapse">
+      <div class="am-panel-bd">
+        {% trans "主讲人" %}：{{news.name}}<br/>
+        {% if news.text %}
+        {% trans "内容简介" %}：{{news.text}}<br/>
+        {% endif %}
+        {% if news.host %}
+        {% trans "主持人" %}：{{news.host}}<br/>
+        {% endif %}
+        {% if news.organizers %}
+        {% trans "主办单位" %}：{{news.organizers}}<br/>
+        {% endif %}
+        {% if news.presenter_detail%}
+        {% trans "主讲人简介" %}：{{news.presenter_detail}}<br/>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="am-g">
+<div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
+  <table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+  <thead>
+    <tr>{% trans "暂无数据" %}</tr>
+  </thead>
+  </table>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}

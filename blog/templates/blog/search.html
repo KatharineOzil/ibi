@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+
+{% block content %}
+	<br>
+<div class="header" >
+  <div class="am-g">
+    <h1><i class="detail-h3 am-icon-search am-icon-xs"></i> {% trans "搜索结果" %}</h1>
+  </div>
+  <hr />
+</div>
+
+<div class="am-g am-container">
+<div class="am-u-sm-centered">
+	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+	<thead>
+        <tr>
+            <th>{% trans "标题" %}</th>
+            <th>{% trans "具体内容" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+	  {% if result %}
+		{% for search in result %}
+        <tr>
+            <td>{{search.title}}</td>
+            <td>{{search.text}}</td>
+        </tr>
+      	{% endfor %}
+      {% else %}
+
+        <tr>
+            <td>{% trans "暂无数据" %}</td>
+        </tr>
+
+      {% endif %}
+     </tbody>
+    </table>
+</div>
+</div>
+        
+	
+
+{% endblock %}
