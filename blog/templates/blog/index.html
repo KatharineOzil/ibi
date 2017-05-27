@@ -14,7 +14,8 @@
 <div class="detail" id='introduction'>
   <div class="am-g am-container">
     <div class="am-u-lg-12">
-      <p style="border:1px solid #ccc; border-radius:5px;text-align:left; padding:21px; margin:20px 20px 40px 20px">{% trans "重庆邮电大学生物信息学研究所位于重庆邮电大学生物信息学院1号楼4楼，周边绿树成荫，风景秀丽。研究所成立于2010年3月，隶属于生物信息学院，其前身是隶属于分子生物学重点实验室的生物信息研究所。新成立的生物信息学研究所包括分子进化研究室、计算机辅助药物设计研究室、生物医学数据挖掘与可视化研究室和生物信息学算法研究室。<br/>研究队伍包括教授3名，副教授3名，讲师7名。其中具有博士学位7名，在读博士2名，硕士4名。主要研究方向为功能基因组学与分子进化、三峡库区生物多样性、DNA光损伤与修复模拟、基因表达调控网络研究、分子动力学模拟研究、进化发育生物学（Evo-Devo)、生物信息学算法等。" %}
+      <p style="border:1px solid #ccc; border-radius:5px;text-align:left; padding:21px; margin:20px 20px 40px 20px">{% trans "重庆邮电大学生物信息学研究所隶属于重庆邮电大学生物信息学院，主要研究方向有生物医学大数据整合、存储与传输，机器学习与多组学数据整合分析与挖掘，生物分子光化学反应的理论计算与模拟、生物多样性信息学等。研究所与国家蛋白质科学中心（北京）及欧洲生物信息学研究所（EMBL-EBI）等单位开展合作，建立了" %}<a herf='http://www.iprox.org'>{% trans "蛋白质组学数据共享系统iProX" %}</a><br>
+      {% trans "与多家科研院所、医院及公司合作研究生物医学大数据的存储、传输和分析中的关键信息技术，建立智能化数据分析模型，开发多组学分析平台iBioX，为进一步精准医疗提供服务和技术支撑。与EBI、国家蛋白质科学中心（北京）等合作开发的" %}<a herf='http://www.omicsdi.org/'>{% trans "多组学工具OmicsDI" %}</a>{% trans "，为生物医学科研人员提供组学大数据的检索和知识发现服务。该成果的论文已发表在Nature Biotechnology。" %}
       </p>
 
       <div class="am-g">
@@ -27,14 +28,15 @@
 
           <p class="detail-p">
       {% if news %}
-      {% for news in news %}
-        <p>{% trans "【最新讲座】" %}{{news.title}}（{{news.lec_time}}、{{news.place}}</p>
+      {% for new in news %}
+        <p>{{new.title}}</p>
       {% endfor %}
       {% else %}
       <p>{% trans "无" %}</p>
       {% endif %}
           </p>
         </div>
+        
         <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 detail-mb" id='announcement'>
           <h2 class="detail-h3">
             <i class="am-icon-bell-o am-icon-sm"></i>
@@ -44,12 +46,12 @@
 
           <p class="detail-p">
           {% if announcement %}
-           {% for announcement in announcement %}
-             <p>{{announcement.title}}</p>
-            {% endfor %}
-          {% else %}
-          <p>{% trans "无" %}</p>
-          {% endif %}
+      {% for ann in announcement %}
+        <p>{% trans "【最新讲座】" %}{{ann.title}}（{{ann.lec_time}}、{{ann.place}}</p>
+      {% endfor %}
+      {% else %}
+      <p>{% trans "无" %}</p>
+      {% endif %}
           </p>
         </div>
       

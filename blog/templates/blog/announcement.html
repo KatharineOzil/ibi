@@ -2,40 +2,58 @@
 {% load i18n %}
 
 {% block content %}
-	<br>
+  <br>
 <div class="header" >
   <div class="am-g">
-    <h1><i class="detail-h3 am-icon-bell-o am-icon-xs"></i> {% trans "公告通知" %}</h1>
+    <h1><i class="detail-h3 am-icon-newspaper-o am-icon-xs"></i> {% trans "最新动态" %}</h1>
   </div>
   <hr />
 </div>
+
 <div class="am-g am-container">
-<div class="am-u-sm-centered">
-	<table class="am-table am-table-striped am-table-hover am-u-sm-centered">
-	<thead>
-        <tr>
-            <th>{% trans "通知" %}</th>
-            <th>{% trans "创建时间" %}</th>
-        </tr>
-    </thead>
-    <tbody>
-	  {% if announcement %}
-		{% for announcement in announcement %}
-        <tr>
-            <td>{{announcement.title}}</td>
-            <td>{{announcement.created_date}}</td>
-        </tr>
-      	{% endfor %}
-      {% else %}
-        <tr>
-            <td>{% trans "暂无数据" %}</td>
-            <td></td>
-        </tr>
-      {% endif %}
-     </tbody>
-    </table>
+
+{% if announcement %}
+{% for ann in announcement %}
+<div class="am-panel-group " id="accordion">
+  <div class="am-u-lg-8 am-u-md-8 am-u-sm-centered">
+    <div class="am-panel am-panel-default">
+    <div class="am-panel-hd">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#ann-{{ann.id}}'}">
+        {{ann.title}}（{% trans "地点" %}：{{ann.place}}、{% trans "时间" %}：{{ann.lec_time}}）
+      </h4>
+    </div>
+    <div id="ann-{{ann.id}}" class="am-panel-collapse am-collapse">
+      <div class="am-panel-bd">
+        {% trans "主讲人" %}：{{ann.name}}<br/>
+        {% if ann.text %}
+        {% trans "内容简介" %}：{{ann.text}}<br/>
+        {% endif %}
+        {% if ann.host %}
+        {% trans "主持人" %}：{{ann.host}}<br/>
+        {% endif %}
+        {% if ann.organizers %}
+        {% trans "主办单位" %}：{{ann.organizers}}<br/>
+        {% endif %}
+        {% if ann.presenter_detail%}
+        {% trans "主讲人简介" %}：{{ann.presenter_detail}}<br/>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="am-g">
+<div class="am-u-lg-9 am-u-md-8 am-u-sm-centered">
+  <table class="am-table am-table-striped am-table-hover am-u-sm-centered">
+  <thead>
+    <tr>{% trans "暂无数据" %}</tr>
+  </thead>
+  </table>
 </div>
 </div>
-	
+</div>
+</div>
+{% endif %}
 
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-26 22:19+0800\n"
+"POT-Creation-Date: 2017-05-27 12:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,19 +49,39 @@ msgstr "Confirm New Password"
 msgid "站内搜索"
 msgstr "Search"
 
-#: blog/templates/blog/announcement.html:8 blog/templates/blog/index.html:41
-msgid "公告通知"
-msgstr "Announcement"
+#: blog/templates/blog/announcement.html:8 blog/templates/blog/index.html:26
+msgid "最新动态"
+msgstr "News"
 
-#: blog/templates/blog/announcement.html:17
-msgid "通知"
-msgstr "Announcement"
+#: blog/templates/blog/announcement.html:22
+msgid "地点"
+msgstr "Place"
 
-#: blog/templates/blog/announcement.html:18
-msgid "创建时间"
-msgstr "Create Time"
+#: blog/templates/blog/announcement.html:22
+msgid "时间"
+msgstr "Time"
 
-#: blog/templates/blog/announcement.html:31 blog/templates/blog/news.html:50
+#: blog/templates/blog/announcement.html:27
+msgid "主讲人"
+msgstr "Presenter"
+
+#: blog/templates/blog/announcement.html:29
+msgid "内容简介"
+msgstr "Introduction"
+
+#: blog/templates/blog/announcement.html:32
+msgid "主持人"
+msgstr "Host"
+
+#: blog/templates/blog/announcement.html:35
+msgid "主办单位"
+msgstr "Organizer"
+
+#: blog/templates/blog/announcement.html:38
+msgid "主讲人简介"
+msgstr "Presenter Information"
+
+#: blog/templates/blog/announcement.html:50 blog/templates/blog/news.html:31
 #: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:39
 #: blog/templates/blog/tools.html:72
 msgid "暂无数据"
@@ -145,97 +165,84 @@ msgstr "Institute of BioInformatics"
 
 #: blog/templates/blog/index.html:17
 msgid ""
-"重庆邮电大学生物信息学研究所位于重庆邮电大学生物信息学院1号楼4楼，周边绿树成"
-"荫，风景秀丽。研究所成立于2010年3月，隶属于生物信息学院，其前身是隶属于分子生"
-"物学重点实验室的生物信息研究所。新成立的生物信息学研究所包括分子进化研究室、"
-"计算机辅助药物设计研究室、生物医学数据挖掘与可视化研究室和生物信息学算法研究"
-"室。<br/>研究队伍包括教授3名，副教授3名，讲师7名。其中具有博士学位7名，在读博"
-"士2名，硕士4名。主要研究方向为功能基因组学与分子进化、三峡库区生物多样性、DNA"
-"光损伤与修复模拟、基因表达调控网络研究、分子动力学模拟研究、进化发育生物学"
-"（Evo-Devo)、生物信息学算法等。"
+"重庆邮电大学生物信息学研究所隶属于重庆邮电大学生物信息学院，主要研究方向有生"
+"物医学大数据整合、存储与传输，机器学习与多组学数据整合分析与挖掘，生物分子光"
+"化学反应的理论计算与模拟、生物多样性信息学等。研究所与国家蛋白质科学中心（北"
+"京）及欧洲生物信息学研究所（EMBL-EBI）等单位开展合作，建立了"
 msgstr ""
-"The new Institute of BioInformatics was established in March, 2010 and "
-"attached to College of Bioinformation, Chongqing University of Post and "
-"Telecommunication. Its precursor is Institute of Bioinformation. Now it "
-"contains four sections: Bioinformatics, Genomics, Molocular Evolution, and "
-"Computational Chemistry. Its research team includes five professors and "
-"associated professors, two lectures and one tutor. Six of them have doctor's "
-"degreee, one is doctorial student and the other two have master's degree. "
-"Our research interests include molecular evolution, comparative genomics, "
-"Evolutionary Developmental Biology (Evo-Devo), drug molecular design and "
-"computational chemistry."
 
-#: blog/templates/blog/index.html:25 blog/templates/blog/news.html:8
-msgid "最新动态"
-msgstr "News"
+#: blog/templates/blog/index.html:17
+msgid "蛋白质组学数据共享系统iProX"
+msgstr ""
 
-#: blog/templates/blog/index.html:31
-msgid "【最新讲座】"
-msgstr "【Report】"
+#: blog/templates/blog/index.html:18
+msgid ""
+"与多家科研院所、医院及公司合作研究生物医学大数据的存储、传输和分析中的关键信"
+"息技术，建立智能化数据分析模型，开发多组学分析平台iBioX，为进一步精准医疗提供"
+"服务和技术支撑。与EBI、国家蛋白质科学中心（北京）等合作开发的"
+msgstr ""
 
-#: blog/templates/blog/index.html:34 blog/templates/blog/index.html:51
+#: blog/templates/blog/index.html:18
+msgid "多组学工具OmicsDI"
+msgstr ""
+
+#: blog/templates/blog/index.html:18
+msgid ""
+"，为生物医学科研人员提供组学大数据的检索和知识发现服务。该成果的论文已发表在"
+"Nature Biotechnology。"
+msgstr ""
+
+#: blog/templates/blog/index.html:35 blog/templates/blog/index.html:53
 msgid "无"
 msgstr "No Data"
 
-#: blog/templates/blog/index.html:59
+#: blog/templates/blog/index.html:43 blog/templates/blog/news.html:8
+msgid "公告通知"
+msgstr "Announcement"
+
+#: blog/templates/blog/index.html:50
+msgid "【最新讲座】"
+msgstr "【Report】"
+
+#: blog/templates/blog/index.html:61
 msgid "相关链接"
 msgstr "Link Out"
 
-#: blog/templates/blog/index.html:63
+#: blog/templates/blog/index.html:65
 msgid "重庆邮电大学"
 msgstr "CQUPT"
 
-#: blog/templates/blog/index.html:64
+#: blog/templates/blog/index.html:66
 msgid "生物信息学院"
 msgstr "College of Bioinformation"
 
-#: blog/templates/blog/index.html:65
+#: blog/templates/blog/index.html:67
 msgid "生物信息学专业网站"
 msgstr "Course Online Web of Department of Bioinformatics"
 
-#: blog/templates/blog/index.html:66
+#: blog/templates/blog/index.html:68
 msgid "重邮校园生物多样性数据库"
 msgstr "Biodiversity Database of CQUPT"
 
-#: blog/templates/blog/index.html:67
+#: blog/templates/blog/index.html:69
 msgid "北京大学生物信息中心"
 msgstr "Center for BioInformatics"
 
-#: blog/templates/blog/index.html:68
+#: blog/templates/blog/index.html:70
 msgid "上海生物信息技术研究中心"
 msgstr "Shanghai Ceneter for Bioinformation Technology"
 
-#: blog/templates/blog/index.html:84
+#: blog/templates/blog/index.html:86
 msgid "搜索"
 msgstr "Search"
 
-#: blog/templates/blog/news.html:22
-msgid "地点"
-msgstr "Place"
+#: blog/templates/blog/news.html:17
+msgid "通知"
+msgstr "Announcement"
 
-#: blog/templates/blog/news.html:22
-msgid "时间"
-msgstr "Time"
-
-#: blog/templates/blog/news.html:27
-msgid "主讲人"
-msgstr "Presenter"
-
-#: blog/templates/blog/news.html:29
-msgid "内容简介"
-msgstr "Introduction"
-
-#: blog/templates/blog/news.html:32
-msgid "主持人"
-msgstr "Host"
-
-#: blog/templates/blog/news.html:35
-msgid "主办单位"
-msgstr "Organizer"
-
-#: blog/templates/blog/news.html:38
-msgid "主讲人简介"
-msgstr "Presenter Information"
+#: blog/templates/blog/news.html:18
+msgid "创建时间"
+msgstr "Create Time"
 
 #: blog/templates/blog/sci_news.html:16
 msgid "获得专利"
@@ -345,3 +352,24 @@ msgstr ""
 #: ibi/settings.py:139
 msgid "English"
 msgstr "中文"
+
+#~ msgid ""
+#~ "重庆邮电大学生物信息学研究所位于重庆邮电大学生物信息学院1号楼4楼，周边绿树"
+#~ "成荫，风景秀丽。研究所成立于2010年3月，隶属于生物信息学院，其前身是隶属于"
+#~ "分子生物学重点实验室的生物信息研究所。新成立的生物信息学研究所包括分子进化"
+#~ "研究室、计算机辅助药物设计研究室、生物医学数据挖掘与可视化研究室和生物信息"
+#~ "学算法研究室。<br/>研究队伍包括教授3名，副教授3名，讲师7名。其中具有博士学"
+#~ "位7名，在读博士2名，硕士4名。主要研究方向为功能基因组学与分子进化、三峡库"
+#~ "区生物多样性、DNA光损伤与修复模拟、基因表达调控网络研究、分子动力学模拟研"
+#~ "究、进化发育生物学（Evo-Devo)、生物信息学算法等。"
+#~ msgstr ""
+#~ "The new Institute of BioInformatics was established in March, 2010 and "
+#~ "attached to College of Bioinformation, Chongqing University of Post and "
+#~ "Telecommunication. Its precursor is Institute of Bioinformation. Now it "
+#~ "contains four sections: Bioinformatics, Genomics, Molocular Evolution, "
+#~ "and Computational Chemistry. Its research team includes five professors "
+#~ "and associated professors, two lectures and one tutor. Six of them have "
+#~ "doctor's degreee, one is doctorial student and the other two have "
+#~ "master's degree. Our research interests include molecular evolution, "
+#~ "comparative genomics, Evolutionary Developmental Biology (Evo-Devo), drug "
+#~ "molecular design and computational chemistry."

@@ -10,15 +10,15 @@ from .models import Graduate
 class UserProfileAdmin(admin.ModelAdmin):
 	list_display = ('username', 'email', 'is_staff', 'status')
 
-class NewsAdmin(admin.ModelAdmin):
+class AnnAdmin(admin.ModelAdmin):
 	list_display = ('title', 'name', 'place', 'lec_time')
 
 class GraduateAdmin(admin.ModelAdmin):
 	list_display = ('name', 'reg_year', 'status')
 
-admin.site.register(News, NewsAdmin)
+admin.site.register(News)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Lab)
 admin.site.register(Tools)
-admin.site.register(Announcement)
+admin.site.register(Announcement, AnnAdmin)
 admin.site.register(Graduate, GraduateAdmin)

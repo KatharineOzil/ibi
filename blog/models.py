@@ -21,12 +21,13 @@ class Graduate(models.Model):
         return self.name
 
 
-class Announcement(models.Model):
+class News(models.Model):
     class Meta:
-        verbose_name = '公告通知'
-        verbose_name_plural = '公告通知'
+        verbose_name = '动态'
+        verbose_name_plural = '动态'
 
     title = models.CharField(verbose_name="标题" ,max_length=200)
+    text = models.TextField(verbose_name="文章内容", blank=True)
     created_date = models.DateTimeField(default=timezone.now, verbose_name="创建时间")
     #attachment = models.FileField(upload_to='blog/static/attachment/announcement/', blank=True)
 
@@ -48,10 +49,10 @@ class Tools(models.Model):
     def __str__(self):
         return self.title
 
-class News(models.Model):
+class Announcement(models.Model):
     class Meta:
-        verbose_name = '动态'
-        verbose_name_plural = '动态'
+        verbose_name = '公告通知'
+        verbose_name_plural = '公告通知'
 
     title = models.CharField(max_length=200, verbose_name="标题")
     text = models.TextField(verbose_name="详细内容", blank=True)
