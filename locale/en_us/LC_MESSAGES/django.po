@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-27 12:30+0800\n"
+"POT-Creation-Date: 2017-06-05 14:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr "Organizer"
 msgid "主讲人简介"
 msgstr "Presenter Information"
 
-#: blog/templates/blog/announcement.html:50 blog/templates/blog/news.html:31
+#: blog/templates/blog/announcement.html:50 blog/templates/blog/news.html:38
 #: blog/templates/blog/search.html:33 blog/templates/blog/tools.html:39
 #: blog/templates/blog/tools.html:72
 msgid "暂无数据"
@@ -89,7 +89,7 @@ msgstr "No Data"
 
 #: blog/templates/blog/base.html:65
 msgid "首页"
-msgstr "No Data"
+msgstr "Index"
 
 #: blog/templates/blog/base.html:66 blog/templates/blog/sci_news.html:7
 msgid "科研动态"
@@ -236,14 +236,6 @@ msgstr "Shanghai Ceneter for Bioinformation Technology"
 msgid "搜索"
 msgstr "Search"
 
-#: blog/templates/blog/news.html:17
-msgid "通知"
-msgstr "Announcement"
-
-#: blog/templates/blog/news.html:18
-msgid "创建时间"
-msgstr "Create Time"
-
 #: blog/templates/blog/sci_news.html:16
 msgid "获得专利"
 msgstr "Patent"
@@ -352,6 +344,12 @@ msgstr ""
 #: ibi/settings.py:139
 msgid "English"
 msgstr "中文"
+
+#~ msgid "通知"
+#~ msgstr "Announcement"
+
+#~ msgid "创建时间"
+#~ msgstr "Create Time"
 
 #~ msgid ""
 #~ "重庆邮电大学生物信息学研究所位于重庆邮电大学生物信息学院1号楼4楼，周边绿树"
