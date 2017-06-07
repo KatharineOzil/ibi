@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-05 14:26+0800\n"
+"POT-Creation-Date: 2017-06-07 16:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,15 +89,14 @@ msgstr "No Data"
 
 #: blog/templates/blog/base.html:65
 msgid "首页"
-msgstr "Index"
+msgstr "Homw"
 
 #: blog/templates/blog/base.html:66 blog/templates/blog/sci_news.html:7
 msgid "科研动态"
 msgstr "News"
 
 #: blog/templates/blog/base.html:67 blog/templates/blog/direction.html:8
-#: blog/templates/blog/direction.html:25 blog/templates/blog/direction.html:52
-msgid "科研方向"
+msgid "研究方向"
 msgstr "Section"
 
 #: blog/templates/blog/base.html:68
@@ -155,10 +154,6 @@ msgstr "Admin"
 msgid "提交"
 msgstr "Submit"
 
-#: blog/templates/blog/direction.html:30 blog/templates/blog/direction.html:57
-msgid "研究人员"
-msgstr "Researchers"
-
 #: blog/templates/blog/index.html:8
 msgid "重庆邮电大学生物信息研究所"
 msgstr "Institute of BioInformatics"
@@ -168,29 +163,22 @@ msgid ""
 "重庆邮电大学生物信息学研究所隶属于重庆邮电大学生物信息学院，主要研究方向有生"
 "物医学大数据整合、存储与传输，机器学习与多组学数据整合分析与挖掘，生物分子光"
 "化学反应的理论计算与模拟、生物多样性信息学等。研究所与国家蛋白质科学中心（北"
-"京）及欧洲生物信息学研究所（EMBL-EBI）等单位开展合作，建立了"
-msgstr ""
-
-#: blog/templates/blog/index.html:17
-msgid "蛋白质组学数据共享系统iProX"
-msgstr ""
+"京）及欧洲生物信息学研究所（EMBL-EBI）等单位开展合作，建立了蛋白质组学数据共"
+"享系统"
+msgstr "Institute of Bioinformatics (IBI), affiliated to School of Bioinformatics, Chongqing University of Posts and Telecommunications, focuses on integration, storage and transfer of biomedical big data, machine learning and integrated omics data mining, theoretical calculation and simulation of photochemical reaction of biomolecule and biodiversity informatics. We have developed the proteomics data sharing platform, "
 
 #: blog/templates/blog/index.html:18
 msgid ""
-"与多家科研院所、医院及公司合作研究生物医学大数据的存储、传输和分析中的关键信"
-"息技术，建立智能化数据分析模型，开发多组学分析平台iBioX，为进一步精准医疗提供"
-"服务和技术支撑。与EBI、国家蛋白质科学中心（北京）等合作开发的"
-msgstr ""
-
-#: blog/templates/blog/index.html:18
-msgid "多组学工具OmicsDI"
-msgstr ""
+"<br>与多家科研院所、医院及公司合作研究生物医学大数据的存储、传输和分析中的关"
+"键信息技术，建立智能化数据分析模型，开发多组学分析平台iBioX，为进一步精准医疗"
+"提供服务和技术支撑。与EBI、国家蛋白质科学中心（北京）等合作开发的多组学工具"
+msgstr ", along with EMBL-EBI and National Center for Protein Science. We are developing another multi-omics data analyzing platform, iBioX, aiming to provide storage, transfer and processing of biomedical big data based on deep learning model. A multi-omics data discovery tool developed in collaboration with EMBL-EBI and Phoenix Center, "
 
 #: blog/templates/blog/index.html:18
 msgid ""
 "，为生物医学科研人员提供组学大数据的检索和知识发现服务。该成果的论文已发表在"
 "Nature Biotechnology。"
-msgstr ""
+msgstr ", was published on the latest Nature Biotechnology."
 
 #: blog/templates/blog/index.html:35 blog/templates/blog/index.html:53
 msgid "无"
@@ -344,6 +332,12 @@ msgstr ""
 #: ibi/settings.py:139
 msgid "English"
 msgstr "中文"
+
+#~ msgid "科研方向"
+#~ msgstr "Section"
+
+#~ msgid "研究人员"
+#~ msgstr "Researchers"
 
 #~ msgid "通知"
 #~ msgstr "Announcement"
