@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 16:26+0800\n"
+"POT-Creation-Date: 2017-06-09 21:31+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,9 +49,9 @@ msgstr "Confirm New Password"
 msgid "站内搜索"
 msgstr "Search"
 
-#: blog/templates/blog/announcement.html:8 blog/templates/blog/index.html:26
-msgid "最新动态"
-msgstr "News"
+#: blog/templates/blog/announcement.html:8 blog/templates/blog/index.html:43
+msgid "公告通知"
+msgstr "Announcement"
 
 #: blog/templates/blog/announcement.html:22
 msgid "地点"
@@ -165,14 +165,25 @@ msgid ""
 "化学反应的理论计算与模拟、生物多样性信息学等。研究所与国家蛋白质科学中心（北"
 "京）及欧洲生物信息学研究所（EMBL-EBI）等单位开展合作，建立了蛋白质组学数据共"
 "享系统"
-msgstr "Institute of Bioinformatics (IBI), affiliated to School of Bioinformatics, Chongqing University of Posts and Telecommunications, focuses on integration, storage and transfer of biomedical big data, machine learning and integrated omics data mining, theoretical calculation and simulation of photochemical reaction of biomolecule and biodiversity informatics. We have developed the proteomics data sharing platform, "
+msgstr ""
+"Institute of Bioinformatics (IBI), affiliated to School of Bioinformatics, "
+"Chongqing University of Posts and Telecommunications, focuses on "
+"integration, storage and transfer of biomedical big data, machine learning "
+"and integrated omics data mining, theoretical calculation and simulation of "
+"photochemical reaction of biomolecule and biodiversity informatics. We have "
+"developed the proteomics data sharing platform, "
 
 #: blog/templates/blog/index.html:18
 msgid ""
 "<br>与多家科研院所、医院及公司合作研究生物医学大数据的存储、传输和分析中的关"
 "键信息技术，建立智能化数据分析模型，开发多组学分析平台iBioX，为进一步精准医疗"
 "提供服务和技术支撑。与EBI、国家蛋白质科学中心（北京）等合作开发的多组学工具"
-msgstr ", along with EMBL-EBI and National Center for Protein Science. We are developing another multi-omics data analyzing platform, iBioX, aiming to provide storage, transfer and processing of biomedical big data based on deep learning model. A multi-omics data discovery tool developed in collaboration with EMBL-EBI and Phoenix Center, "
+msgstr ""
+", along with EMBL-EBI and National Center for Protein Science. We are "
+"developing another multi-omics data analyzing platform, iBioX, aiming to "
+"provide storage, transfer and processing of biomedical big data based on "
+"deep learning model. A multi-omics data discovery tool developed in "
+"collaboration with EMBL-EBI and Phoenix Center, "
 
 #: blog/templates/blog/index.html:18
 msgid ""
@@ -180,13 +191,13 @@ msgid ""
 "Nature Biotechnology。"
 msgstr ", was published on the latest Nature Biotechnology."
 
+#: blog/templates/blog/index.html:26 blog/templates/blog/news.html:8
+msgid "最新动态"
+msgstr "News"
+
 #: blog/templates/blog/index.html:35 blog/templates/blog/index.html:53
 msgid "无"
 msgstr "No Data"
-
-#: blog/templates/blog/index.html:43 blog/templates/blog/news.html:8
-msgid "公告通知"
-msgstr "Announcement"
 
 #: blog/templates/blog/index.html:50
 msgid "【最新讲座】"
